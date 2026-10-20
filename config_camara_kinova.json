@@ -9,6 +9,15 @@
       "ancho": 640,
       "alto": 480,
       "fuente": "default_color_calib_640x480.ini (kinova_vision)"
+    },
+    "1920x1080": {
+      "fx": 2562.24,
+      "fy": 2562.24,
+      "cx": 960.0,
+      "cy": 540.0,
+      "ancho": 1920,
+      "alto": 1080,
+      "fuente": "calibración rápida (regla: 0.25 m a 0.51 m)"
     }
   },
   "profundidad": {
@@ -22,7 +31,21 @@
   },
   "extrinsecos_depth_a_color": {
     "_comentario": "p_color = R * p_profundidad + t, en metros. Valor del static_transform_publisher camera_link -> camera_depth_frame de kinova_vision.launch.py (el marco de color coincide con camera_link).",
-    "rotacion": [1, 0, 0, 0, 1, 0, 0, 0, 1],
-    "traslacion_m": [-0.0195, -0.005, 0.0]
+    "rotacion": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "traslacion_m": [
+      -0.0195,
+      -0.005,
+      0.0
+    ]
   }
 }
