@@ -1,0 +1,3 @@
+Python 3.12.3
+numpy 1.26.4 opencv 4.6.0
+['GStreamer:                   YES (1.24.1)']

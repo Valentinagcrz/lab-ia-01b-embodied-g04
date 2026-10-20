@@ -1,0 +1,25 @@
+$ cd /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied
+$ python3 -m pytest tests -v
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0 -- /usr/bin/python3
+rootdir: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied
+plugins: ament-flake8-0.17.5, ament-xmllint-0.17.5, ament-lint-0.17.5, ament-pep257-0.17.5, launch-testing-ros-0.26.12, ament-copyright-0.17.5, launch-testing-3.4.11, typeguard-4.1.5, colcon-core-0.21.0, cov-4.1.0
+collecting ... collected 15 items
+
+tests/test_geometria.py::test_normalizado_a_pixel_orden_yx PASSED        [  6%]
+tests/test_geometria.py::test_normalizado_a_pixel_rechaza_fuera_de_rango PASSED [ 13%]
+tests/test_geometria.py::test_profundidad_robusta_ignora_ceros_y_atipicos PASSED [ 20%]
+tests/test_geometria.py::test_profundidad_robusta_sin_datos PASSED       [ 26%]
+tests/test_geometria.py::test_profundidad_robusta_en_el_borde PASSED     [ 33%]
+tests/test_geometria.py::test_desproyectar_punto_principal PASSED        [ 40%]
+tests/test_geometria.py::test_desproyectar_ida_y_vuelta PASSED           [ 46%]
+tests/test_geometria.py::test_pipeline_recupera_la_caja PASSED           [ 53%]
+tests/test_geometria.py::test_sin_registro_falla_en_el_borde PASSED      [ 60%]
+tests/test_geometria.py::test_distancia_entre_objetos PASSED             [ 66%]
+tests/test_geometria.py::test_extraer_json_con_cercas_markdown PASSED    [ 73%]
+tests/test_geometria.py::test_detecciones_desde_cajas PASSED             [ 80%]
+tests/test_geometria.py::test_prompts_admiten_objeto PASSED              [ 86%]
+tests/test_geometria.py::test_config_por_defecto_y_escalado PASSED       [ 93%]
+tests/test_geometria.py::test_detecta_intrinsecos_absurdos PASSED        [100%]
+
+============================== 15 passed in 8.94s ==============================

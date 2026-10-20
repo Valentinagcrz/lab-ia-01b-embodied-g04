@@ -1,0 +1,6 @@
+capturas/
+resultados/
+.pytest_cache/
+volumen_trabajo.json
+__pycache__/
+.env

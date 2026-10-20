@@ -1,0 +1,31 @@
+escena,particion,relacion,objeto_esperado,u_min,v_min,u_max,v_max,segura,d_real_m,nota
+semantica1,D,seguridad,caja libre,,,,,si,,termo sobre la otra caja
+semantica1p,P,seguridad,caja libre,,,,,si,,bandeja como distractor
+semantica2,D,pertenencia,celular,,,,,si,,llaves junto al celular correcto
+semantica2p,P,pertenencia,celular,,,,,si,,
+semantica3,D,estado,cuaderno abierto,,,,,si,,
+semantica3p,P,estado,cuaderno abierto,,,,,si,,
+semantica4,D,contencion,esfero,,,,,si,,esfero dentro del estuche
+semantica4p,P,contencion,esfero,,,,,si,,
+burger,D,relacional,caja,,,,,si,,caja libre del carrito
+burgerp,P,relacional,caja,,,,,si,,
+semantica1,-,caja,caja,,,,,,,Exp2: una fila por objeto visible (caja de verdad en px)
+semantica1,-,caja,termo,,,,,,,
+burger,-,caja,caja,,,,,,,
+burger,-,caja,bandeja,,,,,,,
+dist1,-,distancia,tapa termo|tapa caja,,,,,,,centro
+dist2,-,distancia,tapa termo|tapa caja,,,,,,,centro
+dist3,-,distancia,tapa termo|tapa caja,,,,,,,centro
+dist4,-,distancia,tapa termo|tapa caja,,,,,,,borde
+dist5,-,distancia,tapa termo|tapa caja,,,,,,,borde
+dist1,-,altura,termo,,,,,,,altura real del termo (cinta)
+agarre_s1,-,agarre,caja de hamburguesa,,,,,si,,
+agarre_s2,-,agarre,caja de hamburguesa,,,,,si,,
+agarre_s3,-,agarre,caja de hamburguesa,,,,,si,,
+agarre_i1,-,agarre,caja de hamburguesa,,,,,no,,objeto encima
+agarre_i2,-,agarre,caja de hamburguesa,,,,,no,,mano cerca
+agarre_i3,-,agarre,caja de hamburguesa,,,,,no,,caja volcada
+exito_bien1,-,exito,caja,,,,,si,,tarea bien hecha
+exito_bien2,-,exito,caja,,,,,si,,
+exito_mal1,-,exito,caja,,,,,no,,tarea mal hecha a propósito
+exito_mal2,-,exito,caja,,,,,no,,
