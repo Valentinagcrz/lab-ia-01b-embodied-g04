@@ -26,14 +26,14 @@ DEV = AQUI / "resultados" / "desarrollo.csv"
 LOG = AQUI / "resultados" / "corrida.log"
 G = os.environ.get("GRUPO", "G04")
 
-# Calibración rápida (Fase 3): la hoja quedó irreconocible contra la mesa blanca, así que se usa la
-# zona cuadriculada: 50 cuadros de 5 mm = 0.250 m, entre u = 417 y u = 1673 px (fila central de regla),
-# con Z = 0.51 m medido con cinta (mediana del sensor: 0.515 m).
-CAL = dict(u1=417, u2=1673, ancho=0.250, z=0.51)
+# Calibración rápida (Fase 3), sesión 2: cuaderno de tapa negra de 14.8 x 21 cm con el lado de 21 cm horizontal;
+# bordes izquierdo/derecho en u = 576 y u = 1354 px (fila central, detectados por umbral) y Z = 0.70 m medido
+# con cinta (mediana del sensor: 0.701 m).
+CAL = dict(u1=576, u2=1354, ancho=0.210, z=0.70)
 
 OBJ = {
     "semantica1": "la caja de hamburguesa libre y segura para tomar desde arriba",
-    "semantica2": "el celular que pertenece a la persona que dejó sus llaves al lado",
+    "semantica2": "el celular que pertenece a la persona que dejó su argolla azul al lado",
     "semantica3": "el cuaderno que está abierto",
     "semantica4": "el esfero que está dentro del estuche",
     "burger": "la caja de hamburguesa libre del carrito que se puede llevar a la bandeja",
@@ -49,10 +49,64 @@ def log(msg):
         f.write(linea + "\n")
 
 
+# --- Cuota gratuita de gemini-robotics-er-2-preview: 5 consultas/min y 20/día POR PROYECTO ---
+# GEMINI_API_KEYS="clave1,clave2,..." (una por integrante) reparte las consultas entre proyectos.
+CLAVES = [c.strip() for c in os.environ.get("GEMINI_API_KEYS", os.environ.get("GEMINI_API_KEY", "")).split(",") if c.strip()]
+CLAVE_ACTUAL = [0]
+PAUSA_S = 13          # 60 s / 5 consultas por minuto, con margen
+_ultima = [0.0]
+_planeadas: dict = {}
+_hechas: dict | None = None
+
+
+class SinCuota(Exception):
+    pass
+
+
+def _clave_consulta(args):
+    """Identifica una consulta (para retomar sin repetir las que ya están en el CSV)."""
+    if not args or args[0] not in ("consultar", "exito") or "--respuesta" in args:
+        return None
+    a = dict(zip(args[1::2], args[2::2]))
+    if args[0] == "exito":
+        return ("exito", f"{a.get('--antes')}->{a.get('--despues')}", "exito", a.get("--thinking", "low"), "si", a.get("--csv", str(CSV)))
+    return ("consultar", a.get("--escena"), a.get("--tarea"), a.get("--thinking", "low"),
+            "no" if "--sin-registro" in args else "si", a.get("--csv", str(CSV)), a.get("--objeto"))
+
+
+def _ya_hechas(k):
+    global _hechas
+    if _hechas is None:
+        import espacio_trabajo as et
+        _hechas = {}
+        for ruta in (CSV, DEV):
+            for c in et.leer_consultas(ruta):
+                if c.get("modelo") in ("manual", ""):
+                    continue
+                if c["tarea"] == "exito":
+                    kk = ("exito", c["escena"], "exito", c["thinking"], "si", str(ruta))
+                else:
+                    kk = ("consultar", c["escena"], c["tarea"], c["thinking"], c["registro"], str(ruta), c["objeto"])
+                _hechas[kk] = _hechas.get(kk, 0) + 1
+    return _hechas.get(k, 0)
+
+
 def run(args, reintentos=4, script="embodied_sin_ros.py"):
+    k = _clave_consulta(args) if script == "embodied_sin_ros.py" else None
+    if k is not None:
+        _planeadas[k] = _planeadas.get(k, 0) + 1
+        if _planeadas[k] <= _ya_hechas(k):
+            log(f"   (ya hecha, se omite: {k[1]} {k[2]} {k[3]})")
+            return True
     cmd = [sys.executable, str(AQUI / script), *args]
     for intento in range(1, reintentos + 1):
-        r = subprocess.run(cmd, cwd=AQUI, capture_output=True, text=True)
+        if k is not None:
+            time.sleep(max(0.0, PAUSA_S - (time.time() - _ultima[0])))
+            _ultima[0] = time.time()
+        env = dict(os.environ)
+        if CLAVES:
+            env["GEMINI_API_KEY"] = CLAVES[CLAVE_ACTUAL[0]]
+        r = subprocess.run(cmd, cwd=AQUI, capture_output=True, text=True, env=env)
         salida = r.stdout + r.stderr
         with open(LOG, "a", encoding="utf-8") as f:
             f.write("$ " + " ".join(args) + "\n" + r.stdout[-3000:] + ("\n" + r.stderr[-1500:] if r.returncode else "") + "\n")
@@ -61,6 +115,12 @@ def run(args, reintentos=4, script="embodied_sin_ros.py"):
                 if l.startswith(("[INFO] Respuesta", "  - ", "[INFO] Distancia", "[OK] Campo")):
                     log("   " + l.strip())
             return r.returncode == 0
+        if "PerDay" in salida:
+            if CLAVE_ACTUAL[0] + 1 < len(CLAVES):
+                CLAVE_ACTUAL[0] += 1
+                log(f"   🔑 cuota diaria agotada; se pasa a la clave {CLAVE_ACTUAL[0] + 1} de {len(CLAVES)}")
+                continue
+            raise SinCuota()
         espera = 20 * intento
         log(f"   ⚠️ intento {intento} falló ({salida.strip().splitlines()[-1][:160] if salida.strip() else 'sin salida'}); reintento en {espera}s")
         time.sleep(espera)
@@ -68,9 +128,19 @@ def run(args, reintentos=4, script="embodied_sin_ros.py"):
     return False
 
 
-def ultima_respuesta():
+def ultima_respuesta(escena):
+    """Respuesta de la última consulta real (con registro) de esa escena."""
     with open(CSV, encoding="utf-8") as f:
-        return list(csv.DictReader(f))[-1]["respuesta"]
+        filas = [r for r in csv.DictReader(f) if r["escena"] == escena and r["registro"] == "si"
+                 and r["modelo"] != "manual" and r["tarea"] == "puntos" and "mesa" not in r["objeto"]]
+    return filas[-1]["respuesta"]
+
+
+def contar_sin_registro(escena):
+    if not CSV.exists():
+        return 0
+    import espacio_trabajo as et
+    return sum(1 for c in et.leer_consultas(CSV) if c["escena"] == escena and c["registro"] == "no")
 
 
 def git_commit(msg):
@@ -85,8 +155,8 @@ def fase3():
     run(["calibrar", "--escena", "regla", "--u1", str(CAL["u1"]), "--u2", str(CAL["u2"]),
          "--ancho-real-m", str(CAL["ancho"]), "--distancia-m", str(CAL["z"])], 1)
     run(["consultar", "--escena", "regla", "--tarea", "puntos", "--grupo", G, "--objeto",
-         "el borde izquierdo y el borde derecho de la zona cuadriculada de la hoja, sobre la línea horizontal "
-         "que pasa por el centro de la imagen"])
+         "el borde izquierdo y el borde derecho del cuaderno de tapa negra, sobre la línea horizontal que pasa "
+         "por el centro del cuaderno"])
 
 
 def fase5():
@@ -94,7 +164,9 @@ def fase5():
     for e, o in OBJ.items():
         run(["consultar", "--escena", e, "--tarea", "propio", "--thinking", "low", "--grupo", G, "--objeto", o,
              "--csv", str(DEV)])
-    git_commit("prompt congelado")
+    if "prompt congelado" not in subprocess.run(["git", "log", "--oneline", "-5"], cwd=AQUI, capture_output=True,
+                                                 text=True).stdout:
+        git_commit("prompt congelado")
     log("FASE 5 · Exp. 1 — prueba: escenas D y P, prompt congelado, thinking low, 3 repeticiones")
     for i in range(1, 4):
         for e, o in OBJ.items():
@@ -120,9 +192,10 @@ def fase7():
     for k in range(1, 6):
         for i in range(1, 3):
             log(f" dist{k} rep {i}")
-            if run(["consultar", "--escena", f"dist{k}", "--tarea", "puntos", "--grupo", G, "--objeto", O_DIST]):
+            if run(["consultar", "--escena", f"dist{k}", "--tarea", "puntos", "--grupo", G, "--objeto", O_DIST]) \
+                    and contar_sin_registro(f"dist{k}") < i:
                 run(["consultar", "--escena", f"dist{k}", "--tarea", "puntos", "--grupo", G, "--objeto", O_DIST,
-                     "--sin-registro", "--respuesta", ultima_respuesta()], 1)
+                     "--sin-registro", "--respuesta", ultima_respuesta(f"dist{k}")], 1)
     log(" altura del termo")
     run(["consultar", "--escena", "dist1", "--tarea", "puntos", "--grupo", G, "--objeto",
          "el centro de la tapa del termo y la mesa justo al lado del termo"])
@@ -169,12 +242,19 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--desde", type=int, default=3)
     a = ap.parse_args()
-    if not os.environ.get("GEMINI_API_KEY"):
-        sys.exit("Falta: export GEMINI_API_KEY=\"...\"")
+    if not CLAVES:
+        sys.exit('Falta: export GEMINI_API_KEYS="clave1,clave2,..."  (o GEMINI_API_KEY)')
+    log(f"Inicio con {len(CLAVES)} clave(s). Las consultas ya hechas se omiten.")
     t0 = time.time()
-    for n, f in ((3, fase3), (5, fase5), (6, fase6), (7, fase7), (8, fase8), (9, fase9), (10, fase10)):
-        if n >= a.desde:
-            f()
+    try:
+        for n, f in ((3, fase3), (5, fase5), (6, fase6), (7, fase7), (8, fase8), (9, fase9), (10, fase10)):
+            if n >= a.desde:
+                f()
+    except SinCuota:
+        log("⛔ Se agotó la cuota DIARIA de todas las claves. Vuelva a correr el script mañana o con otra clave: "
+            "retoma donde quedó.")
+        fase10()
+        return
     log(f"✅ TERMINADO en {(time.time() - t0) / 60:.1f} min")
 
 

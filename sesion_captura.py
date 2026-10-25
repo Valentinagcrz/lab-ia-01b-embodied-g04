@@ -14,6 +14,7 @@ import csv
 import json
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
@@ -35,12 +36,12 @@ ESCENAS = [
     ("semantica4p", "P · Misma relación con otra disposición (y un distractor).", None),
     ("burger", "D · Cajas de hamburguesa y bandeja del carrito; una caja libre.", None),
     ("burgerp", "P · Cajas y bandeja en otra disposición; otra caja libre.", None),
-    ("dist1", "Termo y una caja, ~20 cm entre sí, cerca del CENTRO de la imagen.",
+    ("dist1", "Termo DE PIE y una caja, ~10 cm entre sí, cerca del CENTRO. Los dos COMPLETOS en la imagen (ve ~38x21 cm).",
      ("d_real_m", "Distancia centro tapa termo -> centro tapa caja (m)")),
-    ("dist2", "Termo y caja, ~30 cm, cerca del centro.", ("d_real_m", "Distancia centro a centro (m)")),
-    ("dist3", "Termo y caja, ~40 cm, cerca del centro.", ("d_real_m", "Distancia centro a centro (m)")),
-    ("dist4", "Termo y caja cerca del BORDE izquierdo/derecho de la imagen.", ("d_real_m", "Distancia centro a centro (m)")),
-    ("dist5", "Termo y caja cerca de OTRO borde de la imagen.", ("d_real_m", "Distancia centro a centro (m)")),
+    ("dist2", "Termo de pie y caja, ~15 cm, cerca del centro, ambos completos.", ("d_real_m", "Distancia centro a centro (m)")),
+    ("dist3", "Termo de pie y caja, ~20 cm, cerca del centro, ambos completos.", ("d_real_m", "Distancia centro a centro (m)")),
+    ("dist4", "Termo y caja ~15 cm, pegados al borde DERECHO de la imagen (no el izquierdo), completos.", ("d_real_m", "Distancia centro a centro (m)")),
+    ("dist5", "Termo y caja ~20 cm, cerca del borde de ARRIBA o ABAJO a la derecha, completos. Sin manos.", ("d_real_m", "Distancia centro a centro (m)")),
     ("agarre_s1", "Caja de hamburguesa sola y libre (posición 1).", None),
     ("agarre_s2", "Caja sola y libre (posición 2).", None),
     ("agarre_s3", "Caja sola y libre (posición 3).", None),
@@ -93,6 +94,78 @@ def pedir_numero(texto):
             print("   Escriba un número, por ejemplo 0.312")
 
 
+def vista_previa(ip, escena, instr):
+    """Muestra la cámara de color EN VIVO hasta que el usuario decida. Devuelve 'c', 's', 'q' o None.
+
+    Un hilo lee la cámara y guarda solo el último cuadro; la ventana siempre se refresca, y si no llegan
+    cuadros por 2.5 s se cierra y se vuelve a abrir el stream (la imagen 1080p por Wi-Fi se atasca a veces).
+    Cuadrícula: cuadros de 5 cm a la altura de la mesa (Z = 0.51 m). La cámara solo acepta un consumidor,
+    por eso el stream se cierra antes de capturar.
+    """
+    import threading
+    import cv2
+    import numpy as np
+    sys.path.insert(0, str(AQUI))
+    from embodied_sin_ros import abrir_stream
+
+    estado = {"frame": None, "t": 0.0, "cap": None, "vivo": True, "error": ""}
+
+    def lector():
+        while estado["vivo"]:
+            if estado["cap"] is None:
+                try:
+                    estado["cap"] = abrir_stream(ip, "color", 100)
+                    estado["t"] = time.time()
+                except Exception as e:  # noqa: BLE001
+                    estado["error"] = str(e)[:80]
+                    time.sleep(1.0)
+                    continue
+            ok, f = estado["cap"].read()
+            if ok:
+                estado["frame"], estado["t"], estado["error"] = f, time.time(), ""
+            elif time.time() - estado["t"] > 2.5:
+                estado["cap"].release(); estado["cap"] = None
+
+    hilo = threading.Thread(target=lector, daemon=True)
+    hilo.start()
+    fx, z = 2562.0, 0.51
+    paso = int(round(fx * 0.05 / z)) // 2                 # 5 cm en la mesa, en la imagen a mitad de tamaño
+    tecla = None
+    while tecla is None:
+        f = estado["frame"]
+        if f is None:
+            img = np.zeros((540, 960, 3), np.uint8)
+            cv2.putText(img, "Conectando con la camara... " + estado["error"], (20, 270),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+        else:
+            img = cv2.resize(f, (960, 540), interpolation=cv2.INTER_AREA)
+            for x in range(480 % paso, 960, paso):
+                cv2.line(img, (x, 0), (x, 540), (0, 255, 255), 1)
+            for y in range(270 % paso, 540, paso):
+                cv2.line(img, (0, y), (960, y), (0, 255, 255), 1)
+            cv2.rectangle(img, (0, 0), (115, 540), (0, 0, 255), 2)       # franja izquierda sin profundidad
+            edad = time.time() - estado["t"]
+            if edad > 1.0:
+                cv2.putText(img, f"imagen congelada {edad:.0f} s - reconectando...", (200, 300),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2)
+        cv2.putText(img, f"{escena}:  c = capturar   s = saltar   q = salir   (cuadros de 5 cm)", (10, 25),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
+        cv2.putText(img, instr[:110], (10, 525), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+        cv2.imshow("VISTA PREVIA", img)
+        k = cv2.waitKey(40) & 0xFF
+        if k in (ord("c"), ord("s"), ord("q"), 13, 32):
+            tecla = "c" if k in (13, 32) else chr(k)
+    estado["vivo"] = False
+    hilo.join(timeout=4)
+    if estado["cap"] is not None:
+        estado["cap"].release()
+    cv2.destroyAllWindows()
+    for _ in range(5):
+        cv2.waitKey(1)
+    time.sleep(1.5)                       # dar tiempo a que la cámara libere la conexión antes de capturar
+    return tecla
+
+
 def capturar(escena, nota, ip):
     cmd = [sys.executable, str(AQUI / "embodied_sin_ros.py"), "capturar", "--escena", escena,
            "--nota", nota, "--ip", ip, "--sobrescribir"]
@@ -108,6 +181,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ip", default="192.168.1.10")
     ap.add_argument("--solo", nargs="*", help="Escenas a (re)capturar")
+    ap.add_argument("--sin-vista", dest="vista", action="store_false", help="No mostrar la cámara en vivo")
     a = ap.parse_args()
     lista = [e for e in ESCENAS if not a.solo or e[0] in a.solo]
     print("=" * 70 + "\nTURNO DE CAPTURA LAB-IA-01B · Enter = capturar · s = saltar · q = salir\n" + "=" * 70)
@@ -117,7 +191,11 @@ def main():
             continue
         print(f"\n[{i}/{len(lista)}] {escena}\n   ARMEN: {instr}")
         while True:
-            op = input("   Enter cuando esté lista (s = saltar, q = salir): ").strip().lower()
+            op = vista_previa(a.ip, escena, instr) if a.vista else None
+            if op is None:
+                op = input("   Enter cuando esté lista (s = saltar, q = salir): ").strip().lower()
+            elif op == "c":
+                op = ""
             if op == "q":
                 print("Saliendo. Vuelva a ejecutar para continuar donde iba."); return
             if op == "s":

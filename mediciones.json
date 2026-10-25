@@ -1,24 +1,24 @@
 {
   "regla": {
-    "z_regla_m": 0.51
+    "z_regla_m": 0.7
   },
   "dist1": {
-    "d_real_m": 0.2
+    "d_real_m": 0.1
   },
   "dist2": {
-    "d_real_m": 0.3
+    "d_real_m": 0.15
   },
   "dist3": {
-    "d_real_m": 0.4
+    "d_real_m": 0.2
   },
   "dist4": {
-    "d_real_m": 0.45
+    "d_real_m": 0.15
   },
   "dist5": {
-    "d_real_m": 0.25
+    "d_real_m": 0.2
   },
   "general": {
-    "altura_termo_m": 0.215,
-    "h_max_m": 0.305
+    "altura_termo_m": 0.15,
+    "h_max_m": 0.2
   }
 }

@@ -1,34 +1,34 @@
 escena,particion,relacion,objeto_esperado,u_min,v_min,u_max,v_max,segura,d_real_m,nota
-semantica1,D,seguridad,caja libre,1420,0,1780,840,si,,caja derecha libre; botella (termo) sobre la caja izquierda; cajas a 12 cm
-semantica1p,P,seguridad,caja libre,440,0,1410,800,si,,caja izquierda libre en diagonal; disco duro sobre la derecha; fondo negro
-semantica2,D,pertenencia,celular,200,0,670,690,si,,llaves junto al celular izquierdo
-semantica2p,P,pertenencia,celular,1280,110,1920,1020,si,,llaves junto al celular derecho; otro celular arriba a la izquierda
-semantica3,D,estado,cuaderno abierto,0,0,1240,950,si,,abierto a la izquierda; cerrado (tapa negra) a la derecha
-semantica3p,P,estado,cuaderno abierto,790,0,1920,1080,si,,abierto a la derecha; cerrado a la izquierda
-semantica4,D,contencion,esfero,280,20,450,730,si,,estuche a la izquierda con esfero azul dentro; dos sueltos a la derecha
-semantica4p,P,contencion,esfero,1220,130,1540,920,si,,estuche a la derecha con marcador blanco dentro; esferos sueltos a la izquierda
-burger,D,relacional,caja,1390,320,1920,960,si,,caja libre a la derecha; caja izquierda con disco duro
-burgerp,P,relacional,caja,250,0,890,540,si,,caja libre a la izquierda; caja derecha con botella encima
-semantica1,-,caja,caja|recipiente|contenedor|box,320,0,900,840,,,caja izquierda (con botella)
-semantica1,-,caja,caja|recipiente|contenedor|box,1420,0,1780,840,,,caja derecha libre
-semantica1,-,caja,termo|botella|bottle|coca,140,0,800,430,,,botella sobre la caja izquierda
-semantica1,-,caja,hoja|papel|cuadricula|paper,870,0,1450,750,,,hoja cuadriculada entre las cajas
-burger,-,caja,caja|recipiente|contenedor|box,290,0,920,840,,,caja izquierda
-burger,-,caja,disco|drive|cargador|bateria|dispositivo,350,20,910,660,,,disco duro en la caja izquierda
-burger,-,caja,caja|recipiente|contenedor|box,1390,320,1920,960,,,caja derecha libre
-dist1,-,distancia,tapa termo|tapa caja,,,,,,0.2000,cinta: centro a centro (config 1)
-dist2,-,distancia,tapa termo|tapa caja,,,,,,0.3000,cinta: centro a centro (config 2)
-dist3,-,distancia,tapa termo|tapa caja,,,,,,0.4000,cinta: centro a centro (config 3)
-dist4,-,distancia,tapa termo|tapa caja,,,,,,0.4500,cinta: centro a centro (borde)
-dist5,-,distancia,tapa termo|tapa caja,,,,,,0.2500,cinta: centro a centro (borde)
-dist1,-,altura,termo,,,,,,0.2150,altura real del termo (cinta)
-agarre_s1,-,agarre,caja de hamburguesa,770,0,1370,770,si,,caja sola
-agarre_s2,-,agarre,caja de hamburguesa,460,0,1730,570,si,,caja sola en diagonal
-agarre_s3,-,agarre,caja de hamburguesa,460,0,1840,380,si,,caja sola arriba
-agarre_i1,-,agarre,caja de hamburguesa,470,0,1610,380,no,,disco duro encima
-agarre_i2,-,agarre,caja de hamburguesa,560,0,1710,400,no,,mano junto a la caja
-agarre_i3,-,agarre,caja de hamburguesa,800,90,1230,790,no,,caja volcada
+semantica1,D,seguridad,caja libre,1200,160,1710,830,si,,caja derecha libre; termo de pie sobre la caja izquierda
+semantica1p,P,seguridad,caja libre,190,70,930,830,si,,caja izquierda libre (sobre la caja del router); termo sobre la caja derecha
+semantica2,D,pertenencia,celular,365,140,690,780,si,,argolla azul junto al celular izquierdo
+semantica2p,P,pertenencia,celular,1060,260,1590,925,si,,argolla azul junto al celular derecho; celulares girados
+semantica3,D,estado,cuaderno abierto,1010,0,1890,1080,si,,abierto a la derecha; cerrado (tapa negra) a la izquierda
+semantica3p,P,estado,cuaderno abierto,190,0,1005,1080,si,,abierto a la izquierda; cerrado a la derecha
+semantica4,D,contencion,esfero,1190,180,1410,820,si,,estuche a la derecha con esfero blanco dentro; lápiz y esfero negro sueltos
+semantica4p,P,contencion,esfero,380,90,480,830,si,,estuche a la izquierda con esfero negro dentro; lápiz pegado por fuera; esfero blanco suelto
+burger,D,relacional,caja,610,80,1120,740,si,,caja libre en el centro; caja izquierda con objeto negro; bandeja (caja del router) a la derecha
+burgerp,P,relacional,caja,775,100,1265,750,si,,caja libre en el centro; caja derecha con objeto negro; bandeja (caja del router) a la izquierda
+semantica1,-,caja,caja|recipiente|contenedor|box|tupper,190,160,710,840,,,caja izquierda (con termo)
+semantica1,-,caja,caja|recipiente|contenedor|box|tupper,1200,160,1710,830,,,caja derecha libre
+semantica1,-,caja,termo|vaso|botella|tapa|cup|mug|thermos,140,370,620,840,,,termo sobre la caja izquierda
+burger,-,caja,caja|recipiente|contenedor|box|tupper,80,80,555,720,,,caja izquierda (ocupada)
+burger,-,caja,disco|drive|cargador|bateria|power|dispositivo|negro,130,170,480,640,,,objeto negro sobre la caja izquierda
+burger,-,caja,caja|recipiente|contenedor|box|tupper,610,80,1120,740,,,caja libre
+burger,-,caja,bandeja|router|caja de carton|tray,1130,0,1920,1070,,,bandeja (caja del router)
+dist1,-,distancia,tapa termo|tapa caja,,,,,,0.1000,cinta: centro a centro (config 1)
+dist2,-,distancia,tapa termo|tapa caja,,,,,,0.1500,cinta: centro a centro (config 2)
+dist3,-,distancia,tapa termo|tapa caja,,,,,,0.2000,cinta: centro a centro (config 3)
+dist4,-,distancia,tapa termo|tapa caja,,,,,,0.1500,cinta: centro a centro (caja en el borde derecho)
+dist5,-,distancia,tapa termo|tapa caja,,,,,,0.2000,cinta: centro a centro (termo en la esquina superior derecha)
+dist1,-,altura,termo,,,,,,0.1500,altura real del termo de pie (cinta)
+agarre_s1,-,agarre,caja de hamburguesa,635,305,1260,805,si,,caja sola
+agarre_s2,-,agarre,caja de hamburguesa,755,125,1270,760,si,,caja sola en otra posición
+agarre_s3,-,agarre,caja de hamburguesa,686,95,1375,805,si,,caja sola en diagonal
+agarre_i1,-,agarre,caja de hamburguesa,686,95,1390,805,no,,objeto negro encima
+agarre_i2,-,agarre,caja de hamburguesa,1055,245,1560,895,no,,mano junto a la caja
+agarre_i3,-,agarre,caja de hamburguesa,680,170,1015,850,no,,caja de lado
 exito_bien1,-,exito,caja,,,,,si,,tarea bien hecha
 exito_bien2,-,exito,caja,,,,,si,,
 exito_mal1,-,exito,caja,,,,,no,,caja al lado de la bandeja
-exito_mal2,-,exito,caja,,,,,no,,caja volcada / medio por fuera
+exito_mal2,-,exito,caja,,,,,no,,caja fuera de la bandeja

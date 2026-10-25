@@ -11,13 +11,13 @@
       "fuente": "default_color_calib_640x480.ini (kinova_vision)"
     },
     "1920x1080": {
-      "fx": 2562.24,
-      "fy": 2562.24,
+      "fx": 2593.33,
+      "fy": 2593.33,
       "cx": 960.0,
       "cy": 540.0,
       "ancho": 1920,
       "alto": 1080,
-      "fuente": "calibración rápida (regla: 0.25 m a 0.51 m)"
+      "fuente": "calibración rápida (regla: 0.21 m a 0.7 m)"
     }
   },
   "profundidad": {
