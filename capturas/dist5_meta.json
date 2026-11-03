@@ -1,0 +1,18 @@
+{
+  "escena": "dist5",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:35:28",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.0,
+    "mediana_mm": 700
+  },
+  "desfase_color_profundidad_ms": 43.7,
+  "nota": "Termo y caja ~20 cm, cerca del borde de ARRIBA o ABAJO a la derecha, completos. Sin manos."
+}

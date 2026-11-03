@@ -1,0 +1,2 @@
+fecha,grupo,opcion,escena,tarea,objeto,modelo,thinking,registro,latencia_s,tokens_entrada,tokens_salida,tokens_pensamiento,label,punto_yx,u,v,z_m,x_m,y_m,rango_m,respuesta
+2026-10-20T11:26:30,G00,A-sin-ROS,sim_dist,puntos,el cuadrado verde,gemini-robotics-er-2-preview,low,si,30.47,1122,32,99,cuadrado verde,"[435, 301]",192.3,208.4,0.55,-0.1005,-0.0203,0.5595,"```json [   {""point"": [435, 301], ""label"": ""cuadrado verde""} ] ```"

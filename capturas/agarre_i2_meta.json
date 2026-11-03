@@ -1,0 +1,18 @@
+{
+  "escena": "agarre_i2",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:44:45",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.6,
+    "mediana_mm": 699
+  },
+  "desfase_color_profundidad_ms": 24.4,
+  "nota": "INSEGURA · Una MANO junto a la caja (solo la mano, sin anillos ni tatuajes)."
+}

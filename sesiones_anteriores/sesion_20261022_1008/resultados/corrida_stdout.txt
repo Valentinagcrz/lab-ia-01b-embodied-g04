@@ -1,0 +1,294 @@
+nohup: ignoring input
+[13:54:07] Inicio con 4 clave(s). Las consultas ya hechas se omiten.
+[13:54:07] FASE 3 · calibración rápida y verificación
+[13:54:09]    [OK] Campo de visión horizontal resultante: 41.1°. Guardado en /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/config_camara_kinova.json
+[13:54:10]    (ya hecha, se omite: regla puntos low)
+[13:54:10] FASE 5 · Exp. 1 — desarrollo (iteración 0, solo escenas D) → desarrollo.csv
+[13:54:11]    (ya hecha, se omite: semantica1 propio low)
+[13:54:11]    (ya hecha, se omite: semantica2 propio low)
+[13:54:11]    (ya hecha, se omite: semantica3 propio low)
+[13:54:11]    (ya hecha, se omite: semantica4 propio low)
+[13:54:11]    (ya hecha, se omite: burger propio low)
+[13:54:11] FASE 5 · Exp. 1 — prueba: escenas D y P, prompt congelado, thinking low, 3 repeticiones
+[13:54:11]  rep 1 · semantica1
+[13:54:11]    (ya hecha, se omite: semantica1 propio low)
+[13:54:11]  rep 1 · semantica1p
+[13:54:11]    (ya hecha, se omite: semantica1p propio low)
+[13:54:11]  rep 1 · semantica2
+[13:54:11]    (ya hecha, se omite: semantica2 propio low)
+[13:54:11]  rep 1 · semantica2p
+[13:54:11]    (ya hecha, se omite: semantica2p propio low)
+[13:54:11]  rep 1 · semantica3
+[13:54:11]    (ya hecha, se omite: semantica3 propio low)
+[13:54:11]  rep 1 · semantica3p
+[13:54:11]    (ya hecha, se omite: semantica3p propio low)
+[13:54:11]  rep 1 · semantica4
+[13:54:11]    (ya hecha, se omite: semantica4 propio low)
+[13:54:11]  rep 1 · semantica4p
+[13:54:11]    (ya hecha, se omite: semantica4p propio low)
+[13:54:11]  rep 1 · burger
+[13:54:11]    (ya hecha, se omite: burger propio low)
+[13:54:11]  rep 1 · burgerp
+[13:54:11]    (ya hecha, se omite: burgerp propio low)
+[13:54:11]  rep 1 · burger (ingenuo)
+[13:54:11]    (ya hecha, se omite: burger puntos low)
+[13:54:11]  rep 1 · burgerp (ingenuo)
+[13:54:11]    (ya hecha, se omite: burgerp puntos low)
+[13:54:11]  rep 2 · semantica1
+[13:54:11]    (ya hecha, se omite: semantica1 propio low)
+[13:54:11]  rep 2 · semantica1p
+[13:54:11]    (ya hecha, se omite: semantica1p propio low)
+[13:54:11]  rep 2 · semantica2
+[13:54:17]    [INFO] Respuesta en 3.109 s:
+[13:54:17]    - celular al lado de las llaves: píxel=(451.0, 332.3)  xyz=[-0.1035, -0.0422, 0.521]  rango=0.5329 m
+[13:54:17]  rep 2 · semantica2p
+[13:54:29]    [INFO] Respuesta en 2.783 s:
+[13:54:29]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[13:54:29]  rep 2 · semantica3
+[13:54:41]    [INFO] Respuesta en 2.615 s:
+[13:54:41]    - cuaderno abierto: píxel=(575.7, 431.6)  xyz=[-0.0778, -0.022, 0.519]  rango=0.5253 m
+[13:54:41]  rep 2 · semantica3p
+[13:54:54]    [INFO] Respuesta en 2.255 s:
+[13:54:54]    - cuaderno abierto: píxel=(1366.3, 591.3)  xyz=[0.081, 0.0102, 0.5105]  rango=0.517 m
+[13:54:54]  rep 2 · semantica4
+[13:55:10]    [INFO] Respuesta en 2.737 s:
+[13:55:10]    - esfero dentro del estuche: píxel=(368.4, 369.0)  xyz=[-0.1221, -0.0353, 0.529]  rango=0.5441 m
+[13:55:10]  rep 2 · semantica4p
+[13:55:20]    [INFO] Respuesta en 2.485 s:
+[13:55:20]    - esfero dentro del estuche: píxel=(1400.9, 528.7)  xyz=[0.0879, -0.0023, 0.511]  rango=0.5185 m
+[13:55:20]  rep 2 · burger
+[13:55:33]    [INFO] Respuesta en 3.3 s:
+[13:55:33]    - caja de hamburguesa libre: píxel=(1650.3, 539.5)  xyz=[0.1223, -0.0001, 0.454]  rango=0.4702 m
+[13:55:33]  rep 2 · burgerp
+[13:55:46]    [INFO] Respuesta en 2.607 s:
+[13:55:46]    - caja de hamburguesa libre: píxel=(560.3, 263.3)  xyz=[-0.0825, -0.0571, 0.529]  rango=0.5384 m
+[13:55:46]  rep 2 · burger (ingenuo)
+[13:55:58]    [INFO] Respuesta en 2.533 s:
+[13:55:58]    - caja: píxel=(617.9, 380.9)  xyz=[-0.0594, -0.0276, 0.445]  rango=0.4498 m
+[13:55:58]  rep 2 · burgerp (ingenuo)
+[13:56:12]    [INFO] Respuesta en 2.661 s:
+[13:56:12]    - caja: píxel=(560.3, 267.6)  xyz=None  rango=None m
+[13:56:12]    - caja: píxel=(1594.7, 404.6)  xyz=None  rango=None m
+[13:56:12]  rep 3 · semantica1
+[13:56:25]    [INFO] Respuesta en 2.247 s:
+[13:56:25]  rep 3 · semantica1p
+[13:56:38]    [INFO] Respuesta en 2.635 s:
+[13:56:38]    - caja de hamburguesa libre: píxel=(921.1, 356.1)  xyz=[-0.0069, -0.0324, 0.452]  rango=0.4532 m
+[13:56:38]  rep 3 · semantica2
+[13:56:49]    ⚠️ intento 1 falló (google.genai.errors.ClientError: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'The caller does not have permission', 'status': 'PERMISSION_DENIED'}); reintento en 20s
+[13:57:13]    [INFO] Respuesta en 2.825 s:
+[13:57:13]    - celular al lado de las llaves: píxel=(451.0, 334.5)  xyz=[-0.1035, -0.0418, 0.521]  rango=0.5328 m
+[13:57:13]  rep 3 · semantica2p
+[13:57:26]    [INFO] Respuesta en 2.582 s:
+[13:57:26]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[13:57:26]  rep 3 · semantica3
+[13:57:39]    [INFO] Respuesta en 2.54 s:
+[13:57:39]    - cuaderno abierto: píxel=(594.9, 414.3)  xyz=[-0.0738, -0.0254, 0.518]  rango=0.5238 m
+[13:57:39]  rep 3 · semantica3p
+[13:57:52]    [INFO] Respuesta en 2.449 s:
+[13:57:52]    - cuaderno abierto: píxel=(1362.5, 593.5)  xyz=[0.0801, 0.0106, 0.51]  rango=0.5164 m
+[13:57:52]  rep 3 · semantica4
+[13:58:06]    [INFO] Respuesta en 3.513 s:
+[13:58:06]    - esfero dentro del estuche: píxel=(366.5, 366.9)  xyz=[-0.1225, -0.0357, 0.529]  rango=0.5442 m
+[13:58:06]  rep 3 · semantica4p
+[13:58:18]    [INFO] Respuesta en 2.396 s:
+[13:58:18]    - esfero dentro del estuche: píxel=(1402.8, 533.0)  xyz=[0.088, -0.0014, 0.5095]  rango=0.5171 m
+[13:58:18]  rep 3 · burger
+[13:58:31]    [INFO] Respuesta en 3.052 s:
+[13:58:31]  rep 3 · burgerp
+[13:58:44]    [INFO] Respuesta en 2.298 s:
+[13:58:44]    - caja de hamburguesa libre del carrito: píxel=(560.3, 267.6)  xyz=None  rango=None m
+[13:58:44]  rep 3 · burger (ingenuo)
+[13:58:57]    [INFO] Respuesta en 2.415 s:
+[13:58:57]    - caja: píxel=(617.9, 380.9)  xyz=[-0.0594, -0.0276, 0.445]  rango=0.4498 m
+[13:58:57]  rep 3 · burgerp (ingenuo)
+[13:59:08]    🔑 cuota diaria agotada; se pasa a la clave 2 de 4
+[13:59:23]    [INFO] Respuesta en 2.559 s:
+[13:59:23]    - caja: píxel=(556.5, 264.4)  xyz=[-0.0833, -0.0569, 0.529]  rango=0.5385 m
+[13:59:23]    - caja: píxel=(1592.8, 343.1)  xyz=None  rango=None m
+[13:59:23] FASE 6 · Exp. 2 — cajas delimitadoras, 5 repeticiones
+[13:59:23]  semantica1 rep 1
+[13:59:38]    [INFO] Respuesta en 4.364 s:
+[13:59:38]    - botella de Coca-Cola: píxel=(476.9, 216.9)  xyz=[-0.1007, -0.0673, 0.534]  rango=0.5476 m
+[13:59:38]    - cajón de plástico: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+[13:59:38]    - cajón de plástico: píxel=(1655.1, 424.0)  xyz=[0.1408, -0.0235, 0.519]  rango=0.5383 m
+[13:59:38]    [INFO] Distancia 3D 'botella de Coca-Cola' <-> 'cajón de plástico': 0.223 m
+[13:59:38]  semantica1 rep 2
+[13:59:49]    [INFO] Respuesta en 3.315 s:
+[13:59:49]    - botella de Coca-Cola: píxel=(478.8, 216.3)  xyz=[-0.1003, -0.0675, 0.534]  rango=0.5475 m
+[13:59:49]    - cajón de plástico izquierdo: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+[13:59:49]    - cajón de plástico derecho: píxel=(1653.2, 421.3)  xyz=[0.1404, -0.024, 0.519]  rango=0.5382 m
+[13:59:49]    [INFO] Distancia 3D 'botella de Coca-Cola' <-> 'cajón de plástico izquierdo': 0.223 m
+[13:59:49]  semantica1 rep 3
+[14:00:03]    [INFO] Respuesta en 3.617 s:
+[14:00:03]    - botella: píxel=(476.9, 216.3)  xyz=[-0.1007, -0.0675, 0.534]  rango=0.5476 m
+[14:00:03]    - cajón de plástico: píxel=(622.7, 441.3)  xyz=[-0.0429, -0.0126, 0.326]  rango=0.3291 m
+[14:00:03]    - cajón de plástico: píxel=(1653.2, 423.0)  xyz=[0.1404, -0.0237, 0.519]  rango=0.5382 m
+[14:00:03]    [INFO] Distancia 3D 'botella' <-> 'cajón de plástico': 0.223 m
+[14:00:03]  semantica1 rep 4
+[14:00:15]    [INFO] Respuesta en 3.232 s:
+[14:00:15]    - botella de Coca-Cola: píxel=(476.9, 216.3)  xyz=[-0.1007, -0.0675, 0.534]  rango=0.5476 m
+[14:00:15]    - organizador de plástico izquierdo: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+[14:00:15]    - organizador de plástico derecho: píxel=(1655.1, 423.5)  xyz=[0.1408, -0.0236, 0.519]  rango=0.5383 m
+[14:00:15]    [INFO] Distancia 3D 'botella de Coca-Cola' <-> 'organizador de plástico izquierdo': 0.223 m
+[14:00:15]  semantica1 rep 5
+[14:00:29]    [INFO] Respuesta en 3.479 s:
+[14:00:29]    - botella: píxel=(476.9, 216.3)  xyz=[-0.1007, -0.0675, 0.534]  rango=0.5476 m
+[14:00:29]    - organizador de plástico: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+[14:00:29]    - organizador de plástico: píxel=(1655.1, 423.0)  xyz=[0.1408, -0.0237, 0.519]  rango=0.5383 m
+[14:00:29]    [INFO] Distancia 3D 'botella' <-> 'organizador de plástico': 0.223 m
+[14:00:29]  burger rep 1
+[14:00:41]    [INFO] Respuesta en 3.331 s:
+[14:00:41]    - disco duro: píxel=(645.7, 307.0)  xyz=[-0.0558, -0.0414, 0.455]  rango=0.4603 m
+[14:00:41]    - caja de plástico: píxel=(620.8, 404.6)  xyz=[-0.0586, -0.0234, 0.443]  rango=0.4475 m
+[14:00:41]    - caja de plástico: píxel=(1627.3, 493.6)  xyz=[0.1182, -0.0082, 0.454]  rango=0.4692 m
+[14:00:41]    [INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[14:00:41]  burger rep 2
+[14:00:55]    [INFO] Respuesta en 3.571 s:
+[14:00:55]    - disco duro: píxel=(640.0, 306.4)  xyz=[-0.0568, -0.0415, 0.455]  rango=0.4604 m
+[14:00:55]    - caja de plástico: píxel=(619.8, 404.6)  xyz=[-0.0588, -0.0234, 0.443]  rango=0.4475 m
+[14:00:55]    - caja de plástico: píxel=(1627.3, 493.6)  xyz=[0.1182, -0.0082, 0.454]  rango=0.4692 m
+[14:00:55]    [INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[14:00:55]  burger rep 3
+[14:01:08]    [INFO] Respuesta en 3.696 s:
+[14:01:08]    - disco duro: píxel=(646.7, 307.5)  xyz=[-0.0556, -0.0413, 0.455]  rango=0.4602 m
+[14:01:08]    - caja de plástico: píxel=(621.8, 405.7)  xyz=[-0.0585, -0.0232, 0.443]  rango=0.4474 m
+[14:01:08]    - caja de plástico: píxel=(1625.4, 493.6)  xyz=[0.1179, -0.0082, 0.454]  rango=0.4691 m
+[14:01:08]    [INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[14:01:08]  burger rep 4
+[14:01:20]    [INFO] Respuesta en 3.329 s:
+[14:01:20]    - disco duro externo: píxel=(644.8, 307.5)  xyz=[-0.056, -0.0413, 0.455]  rango=0.4603 m
+[14:01:20]    - caja de plástico: píxel=(620.8, 405.7)  xyz=[-0.0586, -0.0232, 0.443]  rango=0.4475 m
+[14:01:20]    - caja de plástico: píxel=(1627.3, 493.6)  xyz=[0.1182, -0.0082, 0.454]  rango=0.4692 m
+[14:01:20]    [INFO] Distancia 3D 'disco duro externo' <-> 'caja de plástico': 0.022 m
+[14:01:20]  burger rep 5
+[14:01:33]    [INFO] Respuesta en 3.225 s:
+[14:01:33]    - disco duro: píxel=(646.7, 308.1)  xyz=[-0.0556, -0.0412, 0.455]  rango=0.4602 m
+[14:01:33]    - caja de plástico: píxel=(620.8, 407.3)  xyz=[-0.0586, -0.0229, 0.443]  rango=0.4475 m
+[14:01:33]    - caja de plástico: píxel=(1627.3, 491.5)  xyz=[0.1182, -0.0086, 0.454]  rango=0.4692 m
+[14:01:33]    [INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[14:01:33] FASE 7 · Exp. 3 — distancia 3D con y sin registro (misma respuesta)
+[14:01:33]  dist1 rep 1
+[14:01:47]    [INFO] Respuesta en 3.924 s:
+[14:01:47]    - la tapa del termo: píxel=(591.1, 102.5)  xyz=[-0.0769, -0.0912, 0.534]  rango=0.5472 m
+[14:01:47]    - la tapa de la caja: píxel=(1544.8, 383.0)  xyz=[0.1045, -0.0281, 0.458]  rango=0.4706 m
+[14:01:47]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.207 m
+[14:01:48]    [INFO] Respuesta en 0.0 s:
+[14:01:48]    - la tapa del termo: píxel=(591.1, 102.5)  xyz=[-0.0785, -0.0931, 0.545]  rango=0.5584 m
+[14:01:48]    - la tapa de la caja: píxel=(1544.8, 383.0)  xyz=[0.1189, -0.0319, 0.521]  rango=0.5353 m
+[14:01:48]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.208 m
+[14:01:48]  dist1 rep 2
+[14:02:00]    [INFO] Respuesta en 4.0 s:
+[14:02:00]    - tapa del termo: píxel=(571.9, 97.1)  xyz=[-0.081, -0.0925, 0.535]  rango=0.5489 m
+[14:02:00]    - tapa de la caja: píxel=(1542.9, 377.6)  xyz=[0.1042, -0.029, 0.458]  rango=0.4706 m
+[14:02:00]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.210 m
+[14:02:01]    [INFO] Respuesta en 0.0 s:
+[14:02:01]    - tapa del termo: píxel=(571.9, 97.1)  xyz=[-0.0826, -0.0942, 0.545]  rango=0.5592 m
+[14:02:01]    - tapa de la caja: píxel=(1542.9, 377.6)  xyz=[0.1187, -0.0331, 0.522]  rango=0.5364 m
+[14:02:01]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.212 m
+[14:02:01]  dist2 rep 1
+[14:02:13]    [INFO] Respuesta en 3.993 s:
+[14:02:14]    [INFO] Respuesta en 0.0 s:
+[14:02:14]  dist2 rep 2
+[14:02:26]    [INFO] Respuesta en 4.191 s:
+[14:02:26]    - tapa de la caja: píxel=(1506.4, 335.6)  xyz=[0.0981, -0.0367, 0.46]  rango=0.4718 m
+[14:02:26]    - tapa del termo: píxel=(96.0, 21.6)  xyz=[-0.1811, -0.1087, 0.537]  rango=0.577 m
+[14:02:26]    [INFO] Distancia 3D 'tapa de la caja' <-> 'tapa del termo': 0.298 m
+[14:02:27]    [INFO] Respuesta en 0.0 s:
+[14:02:27]    - tapa de la caja: píxel=(1506.4, 335.6)  xyz=[0.0979, -0.0366, 0.459]  rango=0.4707 m
+[14:02:27]    - tapa del termo: píxel=(96.0, 21.6)  xyz=None  rango=None m
+[14:02:27]  dist3 rep 1
+[14:02:40]    [INFO] Respuesta en 5.134 s:
+[14:02:41]    [INFO] Respuesta en 0.0 s:
+[14:02:41]  dist3 rep 2
+[14:02:52]    [INFO] Respuesta en 3.486 s:
+[14:02:52]    [INFO] Respuesta en 0.0 s:
+[14:02:52]  dist4 rep 1
+[14:03:06]    [INFO] Respuesta en 4.65 s:
+[14:03:07]    [INFO] Respuesta en 0.0 s:
+[14:03:07]  dist4 rep 2
+[14:03:18]    [INFO] Respuesta en 3.819 s:
+[14:03:19]    [INFO] Respuesta en 0.0 s:
+[14:03:19]  dist5 rep 1
+[14:03:35]    [INFO] Respuesta en 7.853 s:
+[14:03:36]    [INFO] Respuesta en 0.0 s:
+[14:03:36]  dist5 rep 2
+[14:03:43]    [INFO] Respuesta en 2.602 s:
+[14:03:43]    [INFO] Respuesta en 0.0 s:
+[14:03:43]  altura del termo
+[14:03:57]    [INFO] Respuesta en 3.239 s:
+[14:03:57]    - tapa del termo: píxel=(566.1, 97.1)  xyz=[-0.0822, -0.0925, 0.535]  rango=0.5491 m
+[14:03:57]    - mesa justo al lado del termo: píxel=(786.8, 264.4)  xyz=[-0.0358, -0.0569, 0.529]  rango=0.5333 m
+[14:03:57]    [INFO] Distancia 3D 'tapa del termo' <-> 'mesa justo al lado del termo': 0.059 m
+[14:03:57] FASE 8 · Exp. 4 — thinking low/high intercalado, 5 repeticiones, semantica2p
+[14:03:57]  rep 1 · low
+[14:04:12]    [INFO] Respuesta en 5.626 s:
+[14:04:12]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:04:12]  rep 1 · high
+[14:04:22]    [INFO] Respuesta en 3.11 s:
+[14:04:22]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:04:22]  rep 2 · low
+[14:04:35]    [INFO] Respuesta en 2.716 s:
+[14:04:35]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:04:35]  rep 2 · high
+[14:04:49]    [INFO] Respuesta en 3.469 s:
+[14:04:49]    - celular al lado de las llaves: píxel=(1612.0, 563.2)  xyz=[0.13, 0.0046, 0.511]  rango=0.5273 m
+[14:04:49]  rep 3 · low
+[14:04:59]    🔑 cuota diaria agotada; se pasa a la clave 3 de 4
+[14:05:14]    [INFO] Respuesta en 2.84 s:
+[14:05:14]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:05:14]  rep 3 · high
+[14:05:28]    [INFO] Respuesta en 3.882 s:
+[14:05:28]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:05:28]  rep 4 · low
+[14:05:40]    [INFO] Respuesta en 2.364 s:
+[14:05:40]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:05:40]  rep 4 · high
+[14:05:54]    [INFO] Respuesta en 3.724 s:
+[14:05:54]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:05:54]  rep 5 · low
+[14:06:06]    [INFO] Respuesta en 2.789 s:
+[14:06:06]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:06:06]  rep 5 · high
+[14:06:20]    [INFO] Respuesta en 3.447 s:
+[14:06:20]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:06:20] FASE 9 · Exp. 5 — volumen, agarre, plan y éxito
+[14:06:21]    [INFO] Respuesta en 0.0 s:
+[14:06:21]    - mesa_sup_izq: píxel=(287.8, 129.5)  xyz=[-0.1384, -0.0845, 0.5275]  rango=0.5519 m
+[14:06:21]    - mesa_sup_der: píxel=(1688.7, 129.5)  xyz=[0.1476, -0.0832, 0.519]  rango=0.546 m
+[14:06:21]    - mesa_inf_izq: píxel=(287.8, 917.1)  xyz=[-0.1351, 0.0758, 0.515]  rango=0.5378 m
+[14:06:21]    - mesa_inf_der: píxel=(1688.7, 917.1)  xyz=[0.1431, 0.074, 0.503]  rango=0.5282 m
+[14:06:21]    [INFO] Distancia 3D 'mesa_sup_izq' <-> 'mesa_sup_der': 0.286 m
+[14:06:21]  agarre_s1
+[14:06:33]    [INFO] Respuesta en 3.186 s:
+[14:06:33]    - caja de hamburguesa: píxel=(1074.6, 377.6)  xyz=[0.0207, -0.0293, 0.463]  rango=0.4644 m
+[14:06:33]  agarre_s2
+[14:07:02]    [INFO] Respuesta en 19.228 s:
+[14:07:02]    - caja de hamburguesa: píxel=(1147.6, 274.1)  xyz=[0.0339, -0.0481, 0.463]  rango=0.4667 m
+[14:07:02]  agarre_s3
+[14:07:07]    [INFO] Respuesta en 3.928 s:
+[14:07:07]    - caja de hamburguesa: píxel=(1065.0, 151.1)  xyz=[0.0217, -0.0803, 0.529]  rango=0.5355 m
+[14:07:07]  agarre_i1
+[14:07:21]    [INFO] Respuesta en 5.362 s:
+[14:07:21]    - caja de hamburguesa: píxel=(1055.5, 118.7)  xyz=[0.0197, -0.087, 0.529]  rango=0.5365 m
+[14:07:21]  agarre_i2
+[14:07:33]    [INFO] Respuesta en 4.416 s:
+[14:07:33]  agarre_i3
+[14:08:01]    [INFO] Respuesta en 19.106 s:
+[14:08:01]  plan
+[14:08:07]    [INFO] Respuesta en 4.658 s:
+[14:08:07]    - caja_libre: píxel=(1654.2, 469.4)  xyz=[0.1235, -0.0126, 0.456]  rango=0.4726 m
+[14:08:07]    - bandeja: píxel=(614.1, 334.5)  xyz=[-0.061, -0.0363, 0.452]  rango=0.4575 m
+[14:08:07]    [INFO] Distancia 3D 'caja_libre' <-> 'bandeja': 0.186 m
+[14:08:07]  éxito exito_antes1 -> exito_bien1
+[14:08:22]    [INFO] Respuesta en 6.842 s:
+[14:08:22]  éxito exito_antes2 -> exito_mal1
+[14:08:33]    [INFO] Respuesta en 5.181 s:
+[14:08:33]  éxito exito_antes3 -> exito_bien2
+[14:09:42]    ⚠️ intento 1 falló (httpx.ReadTimeout: The read operation timed out); reintento en 20s
+[14:10:35]    [INFO] Respuesta en 31.679 s:
+[14:10:35]  éxito exito_antes4 -> exito_mal2
+[14:10:39]    [INFO] Respuesta en 3.232 s:
+[14:10:39] FASE 10 · análisis
+[14:10:40]    resultados/tablas.md escrito
+[14:10:40] ✅ TERMINADO en 16.5 min

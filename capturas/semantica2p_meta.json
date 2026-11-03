@@ -1,0 +1,18 @@
+{
+  "escena": "semantica2p",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:50:48",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.9,
+    "mediana_mm": 700
+  },
+  "desfase_color_profundidad_ms": 23.2,
+  "nota": "P · Dos celulares en otras posiciones; llaves junto al otro celular."
+}

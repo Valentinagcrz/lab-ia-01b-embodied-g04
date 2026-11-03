@@ -1,6 +1,8 @@
-capturas/
-resultados/
-.pytest_cache/
-volumen_trabajo.json
+# Entorno y cachés
 __pycache__/
+.pytest_cache/
 .env
+*.pyc
+
+# Fotos de la sesión 1 (descartada; sus CSV y resultados sí se suben)
+sesiones_anteriores/*/capturas/

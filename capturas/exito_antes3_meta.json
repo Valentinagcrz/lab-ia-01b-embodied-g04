@@ -1,0 +1,18 @@
+{
+  "escena": "exito_antes3",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:39:00",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.1,
+    "mediana_mm": 698
+  },
+  "desfase_color_profundidad_ms": 13.5,
+  "nota": "ANTES 3 · Caja fuera de la bandeja (otra posición)."
+}

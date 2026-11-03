@@ -1,0 +1,18 @@
+{
+  "escena": "dist2",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:31:01",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.7,
+    "mediana_mm": 700
+  },
+  "desfase_color_profundidad_ms": 43.5,
+  "nota": "Termo de pie y caja, ~15 cm, cerca del centro, ambos completos."
+}

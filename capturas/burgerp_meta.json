@@ -1,0 +1,18 @@
+{
+  "escena": "burgerp",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:29:07",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 88.8,
+    "mediana_mm": 696
+  },
+  "desfase_color_profundidad_ms": 41.4,
+  "nota": "P · Cajas y bandeja en otra disposición; otra caja libre."
+}

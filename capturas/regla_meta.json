@@ -1,0 +1,18 @@
+{
+  "escena": "regla",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:18:21",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.7,
+    "mediana_mm": 701
+  },
+  "desfase_color_profundidad_ms": 27.4,
+  "nota": "Solo la hoja A4 blanca, HORIZONTAL (lado largo izquierda-derecha), centrada en la imagen."
+}

@@ -1,0 +1,18 @@
+{
+  "escena": "dist1",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:30:40",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.6,
+    "mediana_mm": 699
+  },
+  "desfase_color_profundidad_ms": 31.7,
+  "nota": "Termo DE PIE y una caja, ~10 cm entre sí, cerca del CENTRO. Los dos COMPLETOS en la imagen (ve ~38x21 cm)."
+}

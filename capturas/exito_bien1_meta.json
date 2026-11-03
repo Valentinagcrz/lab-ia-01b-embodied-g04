@@ -1,0 +1,18 @@
+{
+  "escena": "exito_bien1",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:37:55",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 88.7,
+    "mediana_mm": 699
+  },
+  "desfase_color_profundidad_ms": 13.0,
+  "nota": "DESPUÉS 1 · Metan la caja DENTRO de la bandeja (bien hecho)."
+}

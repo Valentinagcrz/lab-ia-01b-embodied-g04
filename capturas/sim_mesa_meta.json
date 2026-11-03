@@ -1,0 +1,15 @@
+{
+  "escena": "sim_mesa",
+  "nota": "misma escena; esquinas de la zona útil",
+  "simulada": true,
+  "color": {
+    "ancho": 640,
+    "alto": 480
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 98.7
+  }
+}

@@ -1,3 +1,15 @@
+# LAB-IA-01B — Embodied AI con Gemini Robotics-ER 2 y el Kinova Gen3 (Grupo G04, Ruta A)
+
+Integrantes: Mariana Ladino, Cristian Quintero, Sara García y Gabriel González.
+
+- **[EXPLICACION.md](EXPLICACION.md): explicación completa del laboratorio** (conceptos, código, escenas, calibración, resultados, métricas, preguntas y comandos).
+- [LEEME_EQUIPO.md](LEEME_EQUIPO.md): qué se cambió respecto a la plantilla oficial.
+- [COMANDOS_SESION.md](COMANDOS_SESION.md): los comandos fase por fase.
+- `capturas/`, `resultados/` y `verdad_terreno.csv`: datos de la sesión 2 (la que se entrega). `resultados/tablas.md` tiene las Tablas 6 a 11.
+- `entrega/C3_LIA01_G04_v2.docx`: instrumento ABET lleno.
+
+---
+
 # Plantilla — Laboratorio IA 01: Embodied AI con Gemini Robotics-ER 2 y la cámara RGB-D del Kinova
 
 Código base de la [Guía de Laboratorio IA 01](../GUIA_LAB_IA_01_EMBODIED_AI_GEMINI_ER2_KINOVA.md).

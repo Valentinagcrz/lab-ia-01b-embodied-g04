@@ -1,0 +1,18 @@
+{
+  "escena": "exito_mal1",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:38:47",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 88.2,
+    "mediana_mm": 698
+  },
+  "desfase_color_profundidad_ms": 45.0,
+  "nota": "DESPUÉS 2 · Dejen la caja AL LADO de la bandeja (mal a propósito)."
+}

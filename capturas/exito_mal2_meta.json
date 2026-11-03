@@ -1,0 +1,18 @@
+{
+  "escena": "exito_mal2",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:45:30",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 88.9,
+    "mediana_mm": 698
+  },
+  "desfase_color_profundidad_ms": 50.2,
+  "nota": "DESPUÉS 4 · Caja volcada o fuera de la bandeja (mal)."
+}

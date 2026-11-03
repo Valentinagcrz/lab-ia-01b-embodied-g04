@@ -1,0 +1,18 @@
+{
+  "escena": "semantica3",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:25:43",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.8,
+    "mediana_mm": 698
+  },
+  "desfase_color_profundidad_ms": 39.8,
+  "nota": "D · Un cuaderno ABIERTO y uno CERRADO."
+}

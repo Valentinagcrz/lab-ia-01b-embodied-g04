@@ -1,0 +1,15 @@
+{
+  "escena": "sim_dist",
+  "nota": "mesa 0.80 m, caja 0.60 m, termo 0.55 m",
+  "simulada": true,
+  "color": {
+    "ancho": 640,
+    "alto": 480
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 98.7
+  }
+}

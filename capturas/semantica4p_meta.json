@@ -1,0 +1,18 @@
+{
+  "escena": "semantica4p",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:27:11",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.2,
+    "mediana_mm": 700
+  },
+  "desfase_color_profundidad_ms": 20.7,
+  "nota": "P · Misma relación con otra disposición (y un distractor)."
+}

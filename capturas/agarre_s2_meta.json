@@ -1,0 +1,18 @@
+{
+  "escena": "agarre_s2",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:36:05",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.9,
+    "mediana_mm": 701
+  },
+  "desfase_color_profundidad_ms": 33.0,
+  "nota": "Caja sola y libre (posición 2)."
+}

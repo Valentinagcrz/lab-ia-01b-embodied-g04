@@ -1,0 +1,18 @@
+{
+  "escena": "burger",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:28:45",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 88.7,
+    "mediana_mm": 697
+  },
+  "desfase_color_profundidad_ms": 20.8,
+  "nota": "D · Cajas de hamburguesa y bandeja del carrito; una caja libre."
+}

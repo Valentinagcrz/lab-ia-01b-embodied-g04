@@ -1,0 +1,367 @@
+nohup: ignoring input
+[22:01:52] Inicio con 5 clave(s). Las consultas ya hechas se omiten.
+[22:01:52] FASE 3 · calibración rápida y verificación
+[22:02:02]    [OK] Campo de visión horizontal resultante: 40.6°. Guardado en /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/config_camara_kinova.json
+[22:02:12]    [INFO] Respuesta en 3.741 s:
+[22:02:12]    - borde izquierdo: píxel=(575.7, 501.7)  xyz=[-0.1054, -0.0105, 0.711]  rango=0.7188 m
+[22:02:12]    - borde derecho: píxel=(1354.8, 501.7)  xyz=[0.1066, -0.0103, 0.7]  rango=0.7081 m
+[22:02:12]    [INFO] Distancia 3D 'borde izquierdo' <-> 'borde derecho': 0.212 m
+[22:02:12] FASE 5 · Exp. 1 — desarrollo (iteración 0, solo escenas D) → desarrollo.csv
+[22:02:20]    [INFO] Respuesta en 3.527 s:
+[22:02:20]    - caja de hamburguesa libre: píxel=(1454.6, 493.1)  xyz=[0.1333, -0.0126, 0.699]  rango=0.7117 m
+[22:02:32]    [INFO] Respuesta en 2.725 s:
+[22:02:32]    - celular al lado de la argolla azul: píxel=(522.0, 461.8)  xyz=[-0.1196, -0.0213, 0.708]  rango=0.7183 m
+[22:03:15]    [INFO] Respuesta en 36.212 s:
+[22:03:15]    - cuaderno abierto: píxel=(1439.2, 485.6)  xyz=[0.1281, -0.0146, 0.693]  rango=0.7049 m
+[22:03:36]    [INFO] Respuesta en 21.389 s:
+[22:03:36]    - el esfero que está dentro del estuche: píxel=(1295.3, 494.2)  xyz=[0.0906, -0.0124, 0.701]  rango=0.7069 m
+[22:03:47]    [INFO] Respuesta en 8.923 s:
+[22:03:47]    - caja de hamburguesa libre: píxel=(859.7, 414.3)  xyz=[-0.027, -0.0339, 0.699]  rango=0.7003 m
+[22:03:47] FASE 5 · Exp. 1 — prueba: escenas D y P, prompt congelado, thinking low, 3 repeticiones
+[22:03:47]  rep 1 · semantica1
+[22:03:53]    [INFO] Respuesta en 2.874 s:
+[22:03:53]    - caja de hamburguesa libre y segura para tomar desde arriba: píxel=(1448.8, 494.2)  xyz=[0.1318, -0.0123, 0.699]  rango=0.7114 m
+[22:03:53]  rep 1 · semantica1p
+[22:04:06]    [INFO] Respuesta en 3.838 s:
+[22:04:06]    - caja de hamburguesa libre y segura para tomar desde arriba: píxel=(493.2, 446.7)  xyz=[-0.1121, -0.0224, 0.623]  rango=0.6334 m
+[22:04:06]  rep 1 · semantica2
+[22:04:19]    [INFO] Respuesta en 2.483 s:
+[22:04:19]    - celular con la argolla azul al lado: píxel=(522.0, 461.8)  xyz=[-0.1196, -0.0213, 0.708]  rango=0.7183 m
+[22:04:19]  rep 1 · semantica2p
+[22:04:32]    [INFO] Respuesta en 2.417 s:
+[22:04:32]    - celular al lado de la argolla azul: píxel=(1324.1, 591.3)  xyz=[0.0983, 0.0138, 0.7]  rango=0.707 m
+[22:04:32]  rep 1 · semantica3
+[22:04:43]    [INFO] Respuesta en 2.234 s:
+[22:04:43]    - cuaderno abierto: píxel=(1448.8, 485.6)  xyz=[0.1306, -0.0146, 0.693]  rango=0.7054 m
+[22:04:43]  rep 1 · semantica3p
+[22:04:59]    [INFO] Respuesta en 5.24 s:
+[22:04:59]    - cuaderno abierto: píxel=(614.1, 485.6)  xyz=[-0.0927, -0.0146, 0.695]  rango=0.7013 m
+[22:04:59]  rep 1 · semantica4
+[22:05:07]    [INFO] Respuesta en 2.088 s:
+[22:05:07]    - el esfero que está dentro del estuche: píxel=(1295.3, 494.2)  xyz=[0.0906, -0.0124, 0.701]  rango=0.7069 m
+[22:05:07]  rep 1 · semantica4p
+[22:05:24]    [INFO] Respuesta en 3.675 s:
+[22:05:24]    - esfero dentro del estuche: píxel=(431.8, 464.0)  xyz=[-0.144, -0.0207, 0.707]  rango=0.7218 m
+[22:05:24]  rep 1 · burger
+[22:05:37]    [INFO] Respuesta en 5.703 s:
+[22:05:37]    - caja de hamburguesa libre: píxel=(859.7, 410.0)  xyz=[-0.027, -0.035, 0.699]  rango=0.7004 m
+[22:05:37]  rep 1 · burgerp
+[22:05:50]    [INFO] Respuesta en 3.752 s:
+[22:05:50]    - caja de hamburguesa libre: píxel=(1028.6, 426.2)  xyz=[0.0185, -0.0307, 0.699]  rango=0.6999 m
+[22:05:50]  rep 1 · burger (ingenuo)
+[22:06:17]    [INFO] Respuesta en 19.916 s:
+[22:06:17]    - caja: píxel=(1525.6, 523.3)  xyz=[0.1352, -0.004, 0.62]  rango=0.6346 m
+[22:06:17]  rep 1 · burgerp (ingenuo)
+[22:06:20]    [INFO] Respuesta en 2.413 s:
+[22:06:20]    - caja: píxel=(380.0, 526.6)  xyz=[-0.14, -0.0032, 0.626]  rango=0.6415 m
+[22:06:20]  rep 2 · semantica1
+[22:06:48]    [INFO] Respuesta en 2.48 s:
+[22:06:48]    - caja de hamburguesa libre y segura para tomar desde arriba: píxel=(1448.8, 494.2)  xyz=[0.1318, -0.0123, 0.699]  rango=0.7114 m
+[22:06:48]  rep 2 · semantica1p
+[22:06:52]    [INFO] Respuesta en 2.08 s:
+[22:06:52]    - caja de hamburguesa libre: píxel=(493.2, 446.7)  xyz=[-0.1121, -0.0224, 0.623]  rango=0.6334 m
+[22:06:52]  rep 2 · semantica2
+[22:07:25]    [INFO] Respuesta en 24.826 s:
+[22:07:25]    - celular al lado de la argolla azul: píxel=(523.9, 461.8)  xyz=[-0.1191, -0.0213, 0.708]  rango=0.7183 m
+[22:07:25]  rep 2 · semantica2p
+[22:07:30]    🔑 cuota diaria agotada; se pasa a la clave 2 de 5
+[22:07:40]    [INFO] Respuesta en 2.701 s:
+[22:07:40]    - celular al lado de la argolla azul: píxel=(1322.2, 592.4)  xyz=[0.0978, 0.0141, 0.7]  rango=0.7069 m
+[22:07:40]  rep 2 · semantica3
+[22:07:56]    [INFO] Respuesta en 2.302 s:
+[22:07:56]    - cuaderno abierto: píxel=(1450.8, 494.2)  xyz=[0.1311, -0.0122, 0.693]  rango=0.7054 m
+[22:07:56]  rep 2 · semantica3p
+[22:08:08]    [INFO] Respuesta en 2.255 s:
+[22:08:08]    - cuaderno abierto: píxel=(614.1, 512.5)  xyz=[-0.0927, -0.0074, 0.695]  rango=0.7012 m
+[22:08:08]  rep 2 · semantica4
+[22:08:19]    [INFO] Respuesta en 2.075 s:
+[22:08:19]    - el esfero que está dentro del estuche: píxel=(1295.3, 490.9)  xyz=[0.0906, -0.0133, 0.701]  rango=0.707 m
+[22:08:19]  rep 2 · semantica4p
+[22:08:33]    [INFO] Respuesta en 3.233 s:
+[22:08:33]    - esfero dentro del estuche: píxel=(429.9, 464.0)  xyz=[-0.1445, -0.0207, 0.707]  rango=0.7219 m
+[22:08:33]  rep 2 · burger
+[22:08:45]    [INFO] Respuesta en 3.235 s:
+[22:08:45]  rep 2 · burgerp
+[22:08:57]    [INFO] Respuesta en 2.679 s:
+[22:08:57]    - caja de hamburguesa libre: píxel=(1032.4, 420.8)  xyz=[0.0195, -0.0321, 0.699]  rango=0.7 m
+[22:08:57]  rep 2 · burger (ingenuo)
+[22:09:29]    [INFO] Respuesta en 23.869 s:
+[22:09:29]    - caja: píxel=(1535.2, 522.2)  xyz=[0.1375, -0.0042, 0.62]  rango=0.6351 m
+[22:09:29]  rep 2 · burgerp (ingenuo)
+[22:09:33]    [INFO] Respuesta en 2.088 s:
+[22:09:33]    - caja: píxel=(355.0, 535.2)  xyz=[-0.146, -0.0012, 0.626]  rango=0.6428 m
+[22:09:33]  rep 3 · semantica1
+[22:09:44]    [INFO] Respuesta en 2.206 s:
+[22:09:44]    - caja de hamburguesa libre: píxel=(1448.8, 494.2)  xyz=[0.1318, -0.0123, 0.699]  rango=0.7114 m
+[22:09:44]  rep 3 · semantica1p
+[22:09:58]    [INFO] Respuesta en 2.922 s:
+[22:09:58]    - caja de hamburguesa libre y segura para tomar desde arriba: píxel=(495.1, 444.5)  xyz=[-0.1117, -0.0229, 0.623]  rango=0.6333 m
+[22:09:58]  rep 3 · semantica2
+[22:10:14]    [INFO] Respuesta en 8.449 s:
+[22:10:14]    - celular con la argolla azul al lado: píxel=(522.0, 461.8)  xyz=[-0.1196, -0.0213, 0.708]  rango=0.7183 m
+[22:10:14]  rep 3 · semantica2p
+[22:10:23]    [INFO] Respuesta en 1.973 s:
+[22:10:23]    - celular al lado de la argolla azul: píxel=(1322.2, 593.5)  xyz=[0.0978, 0.0144, 0.7]  rango=0.7069 m
+[22:10:23]  rep 3 · semantica3
+[22:10:36]    [INFO] Respuesta en 2.465 s:
+[22:10:36]    - cuaderno abierto: píxel=(1450.8, 507.1)  xyz=[0.1313, -0.0088, 0.694]  rango=0.7064 m
+[22:10:36]  rep 3 · semantica3p
+[22:10:47]    [INFO] Respuesta en 2.174 s:
+[22:10:47]    - cuaderno abierto: píxel=(614.1, 485.6)  xyz=[-0.0927, -0.0146, 0.695]  rango=0.7013 m
+[22:10:47]  rep 3 · semantica4
+[22:11:29]    [INFO] Respuesta en 33.347 s:
+[22:11:29]    - el esfero que está dentro del estuche: píxel=(1295.3, 494.2)  xyz=[0.0906, -0.0124, 0.701]  rango=0.7069 m
+[22:11:29]  rep 3 · semantica4p
+[22:11:33]    [INFO] Respuesta en 2.226 s:
+[22:11:33]    - esfero dentro del estuche: píxel=(429.9, 464.0)  xyz=[-0.1445, -0.0207, 0.707]  rango=0.7219 m
+[22:11:33]  rep 3 · burger
+[22:11:45]    [INFO] Respuesta en 2.735 s:
+[22:11:45]    - caja de hamburguesa libre: píxel=(859.7, 415.4)  xyz=[-0.027, -0.0336, 0.699]  rango=0.7003 m
+[22:11:45]  rep 3 · burgerp
+[22:12:03]    [INFO] Respuesta en 2.956 s:
+[22:12:03]    - caja de hamburguesa libre: píxel=(1032.4, 426.2)  xyz=[0.0195, -0.0307, 0.699]  rango=0.6999 m
+[22:12:03]  rep 3 · burger (ingenuo)
+[22:12:12]    [INFO] Respuesta en 1.652 s:
+[22:12:12]    - caja: píxel=(1525.6, 522.2)  xyz=[0.1352, -0.0042, 0.62]  rango=0.6346 m
+[22:12:12]  rep 3 · burgerp (ingenuo)
+[22:12:22]    🔑 cuota diaria agotada; se pasa a la clave 3 de 5
+[22:12:36]    [INFO] Respuesta en 2.421 s:
+[22:12:36]    - caja: píxel=(312.8, 534.1)  xyz=[-0.1562, -0.0014, 0.626]  rango=0.6452 m
+[22:12:36] FASE 6 · Exp. 2 — cajas delimitadoras, 5 repeticiones
+[22:12:36]  semantica1 rep 1
+[22:12:48]    [INFO] Respuesta en 3.057 s:
+[22:12:48]    - recipiente: píxel=(451.9, 488.8)  xyz=[-0.1395, -0.0141, 0.712]  rango=0.7257 m
+[22:12:48]    - termo: píxel=(384.8, 603.7)  xyz=[-0.1504, 0.0167, 0.678]  rango=0.6947 m
+[22:12:48]    - recipiente: píxel=(1453.6, 494.7)  xyz=[0.1331, -0.0122, 0.699]  rango=0.7117 m
+[22:12:48]    [INFO] Distancia 3D 'recipiente' <-> 'termo': 0.047 m
+[22:12:48]  semantica1 rep 2
+[22:13:06]    [INFO] Respuesta en 8.281 s:
+[22:13:06]    - contenedor: píxel=(451.0, 487.7)  xyz=[-0.1398, -0.0144, 0.712]  rango=0.7257 m
+[22:13:06]    - termo: píxel=(384.8, 602.1)  xyz=[-0.1506, 0.0163, 0.679]  rango=0.6957 m
+[22:13:06]    - contenedor: píxel=(1453.6, 495.3)  xyz=[0.1331, -0.0121, 0.699]  rango=0.7117 m
+[22:13:06]    [INFO] Distancia 3D 'contenedor' <-> 'termo': 0.046 m
+[22:13:06]  semantica1 rep 3
+[22:13:27]    [INFO] Respuesta en 18.0 s:
+[22:13:27]    - recipiente: píxel=(453.8, 488.8)  xyz=[-0.139, -0.0141, 0.712]  rango=0.7256 m
+[22:13:27]    - vaso: píxel=(383.8, 602.6)  xyz=[-0.1509, 0.0164, 0.679]  rango=0.6958 m
+[22:13:27]    - recipiente: píxel=(1455.6, 495.8)  xyz=[0.1336, -0.0119, 0.699]  rango=0.7117 m
+[22:13:27]    [INFO] Distancia 3D 'recipiente' <-> 'vaso': 0.046 m
+[22:13:27]  semantica1 rep 4
+[22:13:33]    [INFO] Respuesta en 4.383 s:
+[22:13:33]    - recipiente: píxel=(452.9, 488.2)  xyz=[-0.1392, -0.0142, 0.712]  rango=0.7256 m
+[22:13:33]    - termo: píxel=(384.8, 603.7)  xyz=[-0.1504, 0.0167, 0.678]  rango=0.6947 m
+[22:13:33]    - recipiente: píxel=(1454.6, 495.3)  xyz=[0.1333, -0.0121, 0.699]  rango=0.7117 m
+[22:13:33]    [INFO] Distancia 3D 'recipiente' <-> 'termo': 0.047 m
+[22:13:33]  semantica1 rep 5
+[22:13:46]    [INFO] Respuesta en 6.231 s:
+[22:13:46]    - recipiente: píxel=(451.9, 488.2)  xyz=[-0.1395, -0.0142, 0.712]  rango=0.7257 m
+[22:13:46]    - termo: píxel=(383.8, 602.6)  xyz=[-0.1509, 0.0164, 0.679]  rango=0.6958 m
+[22:13:46]    - recipiente: píxel=(1454.6, 496.9)  xyz=[0.1333, -0.0116, 0.699]  rango=0.7117 m
+[22:13:46]    [INFO] Distancia 3D 'recipiente' <-> 'termo': 0.046 m
+[22:13:46]  burger rep 1
+[22:13:58]    [INFO] Respuesta en 3.696 s:
+[22:13:58]    - teléfono móvil: píxel=(304.2, 403.5)  xyz=[-0.1796, -0.0374, 0.71]  rango=0.7333 m
+[22:13:58]    - recipiente de plástico: píxel=(319.5, 401.4)  xyz=[-0.1754, -0.0379, 0.71]  rango=0.7323 m
+[22:13:58]    - recipiente de plástico: píxel=(860.7, 416.5)  xyz=[-0.0268, -0.0333, 0.699]  rango=0.7003 m
+[22:13:58]    - caja: píxel=(1526.6, 529.2)  xyz=[0.1355, -0.0026, 0.62]  rango=0.6346 m
+[22:13:58]    [INFO] Distancia 3D 'teléfono móvil' <-> 'recipiente de plástico': 0.004 m
+[22:13:58]  burger rep 2
+[22:14:45]    [INFO] Respuesta en 41.674 s:
+[22:14:45]    - teléfono: píxel=(304.2, 403.5)  xyz=[-0.1796, -0.0374, 0.71]  rango=0.7333 m
+[22:14:45]    - recipiente: píxel=(319.5, 401.4)  xyz=[-0.1754, -0.0379, 0.71]  rango=0.7323 m
+[22:14:45]    - recipiente: píxel=(861.6, 416.5)  xyz=[-0.0265, -0.0333, 0.699]  rango=0.7003 m
+[22:14:45]    - caja: píxel=(1526.6, 529.2)  xyz=[0.1355, -0.0026, 0.62]  rango=0.6346 m
+[22:14:45]    [INFO] Distancia 3D 'teléfono' <-> 'recipiente': 0.004 m
+[22:14:45]  burger rep 3
+[22:14:51]    [INFO] Respuesta en 4.465 s:
+[22:14:51]    - objeto negro: píxel=(303.2, 403.0)  xyz=[-0.1798, -0.0375, 0.71]  rango=0.7334 m
+[22:14:51]    - recipiente de plástico: píxel=(319.5, 401.4)  xyz=[-0.1754, -0.0379, 0.71]  rango=0.7323 m
+[22:14:51]    - recipiente de plástico: píxel=(860.7, 416.0)  xyz=[-0.0268, -0.0334, 0.699]  rango=0.7003 m
+[22:14:51]    - caja: píxel=(1526.6, 529.8)  xyz=[0.1355, -0.0024, 0.62]  rango=0.6346 m
+[22:14:51]    [INFO] Distancia 3D 'objeto negro' <-> 'recipiente de plástico': 0.004 m
+[22:14:51]  burger rep 4
+[22:15:04]    [INFO] Respuesta en 3.742 s:
+[22:15:04]    - smartphone: píxel=(304.2, 403.0)  xyz=[-0.1796, -0.0375, 0.71]  rango=0.7333 m
+[22:15:04]    - container lid: píxel=(319.5, 401.4)  xyz=[-0.1754, -0.0379, 0.71]  rango=0.7323 m
+[22:15:04]    - food container: píxel=(861.6, 416.5)  xyz=[-0.0265, -0.0333, 0.699]  rango=0.7003 m
+[22:15:04]    - box: píxel=(1526.6, 528.2)  xyz=[0.1355, -0.0028, 0.62]  rango=0.6346 m
+[22:15:04]    [INFO] Distancia 3D 'smartphone' <-> 'container lid': 0.004 m
+[22:15:04]  burger rep 5
+[22:15:15]    [INFO] Respuesta en 4.107 s:
+[22:15:15]    - recipiente de plástico: píxel=(320.5, 401.4)  xyz=[-0.1751, -0.0379, 0.71]  rango=0.7323 m
+[22:15:15]    - celular: píxel=(305.1, 402.5)  xyz=[-0.1793, -0.0377, 0.71]  rango=0.7333 m
+[22:15:15]    - recipiente de plástico: píxel=(859.7, 416.0)  xyz=[-0.027, -0.0334, 0.699]  rango=0.7003 m
+[22:15:15]    - caja: píxel=(1526.6, 527.1)  xyz=[0.1355, -0.0031, 0.62]  rango=0.6346 m
+[22:15:15]    [INFO] Distancia 3D 'recipiente de plástico' <-> 'celular': 0.004 m
+[22:15:15] FASE 7 · Exp. 3 — distancia 3D con y sin registro (misma respuesta)
+[22:15:15]  dist1 rep 1
+[22:15:32]    [INFO] Respuesta en 5.668 s:
+[22:15:32]    - tapa del termo: píxel=(514.3, 528.7)  xyz=[-0.1224, -0.0031, 0.712]  rango=0.7224 m
+[22:15:32]    - tapa de la caja: píxel=(969.1, 512.5)  xyz=[0.0024, -0.0074, 0.697]  rango=0.697 m
+[22:15:32]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.126 m
+[22:15:33]    [INFO] Respuesta en 0.0 s:
+[22:15:33]    - tapa del termo: píxel=(514.3, 528.7)  xyz=[-0.122, -0.0031, 0.71]  rango=0.7204 m
+[22:15:33]    - tapa de la caja: píxel=(969.1, 512.5)  xyz=[0.0024, -0.0074, 0.697]  rango=0.697 m
+[22:15:33]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.125 m
+[22:15:33]  dist1 rep 2
+[22:15:45]    [INFO] Respuesta en 6.381 s:
+[22:15:45]    - la tapa del termo: píxel=(514.3, 528.7)  xyz=[-0.1224, -0.0031, 0.712]  rango=0.7224 m
+[22:15:45]    - la tapa de la caja: píxel=(969.1, 512.5)  xyz=[0.0024, -0.0074, 0.697]  rango=0.697 m
+[22:15:45]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.126 m
+[22:15:44]    [INFO] Respuesta en 0.0 s:
+[22:15:44]    - la tapa del termo: píxel=(514.3, 528.7)  xyz=[-0.122, -0.0031, 0.71]  rango=0.7204 m
+[22:15:44]    - la tapa de la caja: píxel=(969.1, 512.5)  xyz=[0.0024, -0.0074, 0.697]  rango=0.697 m
+[22:15:44]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.125 m
+[22:15:44]  dist2 rep 1
+[22:16:48]    ⚠️ intento 1 falló (httpx.ReadTimeout: The read operation timed out); reintento en 20s
+[22:17:28]    [INFO] Respuesta en 20.925 s:
+[22:17:28]    - tapa del termo: píxel=(514.3, 528.7)  xyz=[-0.1222, -0.0031, 0.711]  rango=0.7214 m
+[22:17:28]    - tapa de la caja: píxel=(1216.6, 533.0)  xyz=[0.0693, -0.0019, 0.7]  rango=0.7034 m
+[22:17:28]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.192 m
+[22:17:29]    [INFO] Respuesta en 0.0 s:
+[22:17:29]    - tapa del termo: píxel=(514.3, 528.7)  xyz=[-0.1219, -0.0031, 0.709]  rango=0.7194 m
+[22:17:29]    - tapa de la caja: píxel=(1216.6, 533.0)  xyz=[0.0693, -0.0019, 0.7]  rango=0.7034 m
+[22:17:29]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.191 m
+[22:17:29]  dist2 rep 2
+[22:18:27]    ⚠️ intento 1 falló (httpx.ReadTimeout: The read operation timed out); reintento en 20s
+[22:18:49]    [INFO] Respuesta en 2.665 s:
+[22:18:49]    - la tapa del termo: píxel=(514.3, 528.7)  xyz=[-0.1222, -0.0031, 0.711]  rango=0.7214 m
+[22:18:49]    - la tapa de la caja: píxel=(1216.6, 534.1)  xyz=[0.0693, -0.0016, 0.7]  rango=0.7034 m
+[22:18:49]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.192 m
+[22:18:49]    [INFO] Respuesta en 0.0 s:
+[22:18:49]    - la tapa del termo: píxel=(514.3, 528.7)  xyz=[-0.1219, -0.0031, 0.709]  rango=0.7194 m
+[22:18:49]    - la tapa de la caja: píxel=(1216.6, 534.1)  xyz=[0.0694, -0.0016, 0.701]  rango=0.7044 m
+[22:18:49]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.191 m
+[22:18:49]  dist3 rep 1
+[22:19:02]    [INFO] Respuesta en 3.015 s:
+[22:19:02]    - tapa del termo: píxel=(514.3, 530.9)  xyz=[-0.122, -0.0025, 0.71]  rango=0.7204 m
+[22:19:02]    - tapa de la caja: píxel=(1466.1, 537.3)  xyz=[0.1374, -0.0007, 0.704]  rango=0.7173 m
+[22:19:02]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.259 m
+[22:19:03]    [INFO] Respuesta en 0.0 s:
+[22:19:03]    - tapa del termo: píxel=(514.3, 530.9)  xyz=[-0.1215, -0.0025, 0.707]  rango=0.7174 m
+[22:19:03]    - tapa de la caja: píxel=(1466.1, 537.3)  xyz=[0.136, -0.0007, 0.697]  rango=0.7101 m
+[22:19:03]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.258 m
+[22:19:03]  dist3 rep 2
+[22:19:14]    [INFO] Respuesta en 2.363 s:
+[22:19:14]    - la tapa del termo: píxel=(514.3, 530.9)  xyz=[-0.122, -0.0025, 0.71]  rango=0.7204 m
+[22:19:14]    - la tapa de la caja: píxel=(1464.2, 539.5)  xyz=[0.1369, -0.0001, 0.704]  rango=0.7172 m
+[22:19:14]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.259 m
+[22:19:15]    [INFO] Respuesta en 0.0 s:
+[22:19:15]    - la tapa del termo: píxel=(514.3, 530.9)  xyz=[-0.1215, -0.0025, 0.707]  rango=0.7174 m
+[22:19:15]    - la tapa de la caja: píxel=(1464.2, 539.5)  xyz=[0.1355, -0.0001, 0.697]  rango=0.7101 m
+[22:19:15]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.257 m
+[22:19:15]  dist4 rep 1
+[22:19:26]    [INFO] Respuesta en 2.585 s:
+[22:19:26]    - tapa del termo: píxel=(894.3, 542.7)  xyz=[-0.0177, 0.0007, 0.698]  rango=0.6982 m
+[22:19:26]    - tapa de la caja: píxel=(1665.7, 550.3)  xyz=[0.1897, 0.0028, 0.697]  rango=0.7224 m
+[22:19:26]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.207 m
+[22:19:26]    [INFO] Respuesta en 0.0 s:
+[22:19:26]    - tapa del termo: píxel=(894.3, 542.7)  xyz=[-0.0178, 0.0007, 0.703]  rango=0.7032 m
+[22:19:26]    - tapa de la caja: píxel=(1665.7, 550.3)  xyz=[0.1897, 0.0028, 0.697]  rango=0.7224 m
+[22:19:26]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.208 m
+[22:19:26]  dist4 rep 2
+[22:19:37]    🔑 cuota diaria agotada; se pasa a la clave 4 de 5
+[22:19:49]    [INFO] Respuesta en 2.44 s:
+[22:19:49]    - tapa del termo: píxel=(892.3, 540.6)  xyz=[-0.0182, 0.0002, 0.698]  rango=0.6982 m
+[22:19:49]    - tapa de la caja: píxel=(1665.7, 550.3)  xyz=[0.1897, 0.0028, 0.697]  rango=0.7224 m
+[22:19:49]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.208 m
+[22:19:50]    [INFO] Respuesta en 0.0 s:
+[22:19:50]    - tapa del termo: píxel=(892.3, 540.6)  xyz=[-0.0183, 0.0002, 0.703]  rango=0.7032 m
+[22:19:50]    - tapa de la caja: píxel=(1665.7, 550.3)  xyz=[0.1897, 0.0028, 0.697]  rango=0.7224 m
+[22:19:50]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.208 m
+[22:19:50]  dist5 rep 1
+[22:20:33]    [INFO] Respuesta en 35.044 s:
+[22:20:33]    - tapa del termo: píxel=(1631.1, 196.4)  xyz=[0.1804, -0.0924, 0.697]  rango=0.7259 m
+[22:20:33]    - tapa de la caja: píxel=(1022.8, 799.5)  xyz=[0.017, 0.0703, 0.702]  rango=0.7057 m
+[22:20:33]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.231 m
+[22:20:34]    [INFO] Respuesta en 0.0 s:
+[22:20:34]    - tapa del termo: píxel=(1631.1, 196.4)  xyz=[0.1804, -0.0924, 0.697]  rango=0.7259 m
+[22:20:34]    - tapa de la caja: píxel=(1022.8, 799.5)  xyz=[0.0167, 0.0691, 0.69]  rango=0.6936 m
+[22:20:34]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.230 m
+[22:20:34]  dist5 rep 2
+[22:20:37]    [INFO] Respuesta en 2.002 s:
+[22:20:37]    - tapa del termo: píxel=(1631.1, 196.4)  xyz=[0.1804, -0.0924, 0.697]  rango=0.7259 m
+[22:20:37]    - tapa de la caja: píxel=(1022.8, 798.5)  xyz=[0.017, 0.07, 0.702]  rango=0.7057 m
+[22:20:37]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.230 m
+[22:20:38]    [INFO] Respuesta en 0.0 s:
+[22:20:38]    - tapa del termo: píxel=(1631.1, 196.4)  xyz=[0.1804, -0.0924, 0.697]  rango=0.7259 m
+[22:20:38]    - tapa de la caja: píxel=(1022.8, 798.5)  xyz=[0.0167, 0.0688, 0.69]  rango=0.6936 m
+[22:20:38]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.230 m
+[22:20:38]  altura del termo
+[22:21:12]    [INFO] Respuesta en 25.57 s:
+[22:21:12]    - el centro de la tapa del termo: píxel=(514.3, 530.9)  xyz=[-0.1224, -0.0025, 0.712]  rango=0.7224 m
+[22:21:12]    - la mesa justo al lado del termo: píxel=(191.9, 528.7)  xyz=[-0.2103, -0.0031, 0.71]  rango=0.7405 m
+[22:21:12]    [INFO] Distancia 3D 'el centro de la tapa del termo' <-> 'la mesa justo al lado del termo': 0.088 m
+[22:21:12] FASE 8 · Exp. 4 — thinking low/high intercalado, 5 repeticiones, semantica2p
+[22:21:12]  rep 1 · low
+[22:21:16]    [INFO] Respuesta en 2.163 s:
+[22:21:16]    - celular al lado de la argolla azul: píxel=(1324.1, 593.5)  xyz=[0.0983, 0.0144, 0.7]  rango=0.707 m
+[22:21:16]  rep 1 · high
+[22:21:28]    [INFO] Respuesta en 4.113 s:
+[22:21:28]    - celular derecho al lado de la argolla azul: píxel=(1324.1, 593.5)  xyz=[0.0983, 0.0144, 0.7]  rango=0.707 m
+[22:21:28]  rep 2 · low
+[22:21:40]    [INFO] Respuesta en 2.688 s:
+[22:21:40]    - celular al lado de la argolla azul: píxel=(1322.2, 592.4)  xyz=[0.0978, 0.0141, 0.7]  rango=0.7069 m
+[22:21:40]  rep 2 · high
+[22:21:57]    [INFO] Respuesta en 8.39 s:
+[22:21:57]    - celular al lado de la argolla azul: píxel=(1324.1, 593.5)  xyz=[0.0983, 0.0144, 0.7]  rango=0.707 m
+[22:21:57]  rep 3 · low
+[22:22:46]    [INFO] Respuesta en 46.333 s:
+[22:22:46]    - celular derecho al lado de la argolla azul: píxel=(1322.2, 593.5)  xyz=[0.0978, 0.0144, 0.7]  rango=0.7069 m
+[22:22:46]  rep 3 · high
+[22:22:48]    [INFO] Respuesta en 3.169 s:
+[22:22:48]    - celular al lado de la argolla azul: píxel=(1324.1, 591.3)  xyz=[0.0983, 0.0138, 0.7]  rango=0.707 m
+[22:22:48]  rep 4 · low
+[22:23:03]    [INFO] Respuesta en 2.621 s:
+[22:23:03]    - celular al lado de la argolla azul: píxel=(1322.2, 593.5)  xyz=[0.0978, 0.0144, 0.7]  rango=0.7069 m
+[22:23:03]  rep 4 · high
+[22:23:16]    [INFO] Respuesta en 3.295 s:
+[22:23:16]    - celular al lado de la argolla azul: píxel=(1322.2, 592.4)  xyz=[0.0978, 0.0141, 0.7]  rango=0.7069 m
+[22:23:16]  rep 5 · low
+[22:23:32]    [INFO] Respuesta en 7.63 s:
+[22:23:32]    - celular al lado de la argolla azul: píxel=(1324.1, 593.5)  xyz=[0.0983, 0.0144, 0.7]  rango=0.707 m
+[22:23:32]  rep 5 · high
+[22:23:40]    [INFO] Respuesta en 3.407 s:
+[22:23:40]    - celular con la argolla azul al lado: píxel=(1322.2, 592.4)  xyz=[0.0978, 0.0141, 0.7]  rango=0.7069 m
+[22:23:40] FASE 9 · Exp. 5 — volumen, agarre, plan y éxito
+[22:23:41]    [INFO] Respuesta en 0.0 s:
+[22:23:41]    - mesa_sup_izq: píxel=(287.8, 129.5)  xyz=[-0.1835, -0.1121, 0.708]  rango=0.7399 m
+[22:23:41]    - mesa_sup_der: píxel=(1688.7, 129.5)  xyz=[0.1957, -0.1103, 0.6965]  rango=0.7318 m
+[22:23:41]    - mesa_inf_izq: píxel=(287.8, 917.1)  xyz=[-0.1845, 0.1035, 0.712]  rango=0.7428 m
+[22:23:41]    - mesa_inf_der: píxel=(1688.7, 917.1)  xyz=[0.197, 0.1019, 0.701]  rango=0.7353 m
+[22:23:41]    [INFO] Distancia 3D 'mesa_sup_izq' <-> 'mesa_sup_der': 0.379 m
+[22:23:41]  agarre_s1
+[22:23:51]    [INFO] Respuesta en 2.851 s:
+[22:23:51]    - caja de hamburguesa: píxel=(940.3, 550.3)  xyz=[-0.0053, 0.0028, 0.697]  rango=0.697 m
+[22:23:51]  agarre_s2
+[22:24:04]    [INFO] Respuesta en 2.852 s:
+[22:24:04]    - caja de hamburguesa: píxel=(1007.5, 444.5)  xyz=[0.0128, -0.0257, 0.697]  rango=0.6976 m
+[22:24:04]  agarre_s3
+[22:24:17]    [INFO] Respuesta en 2.899 s:
+[22:24:17]    - caja de hamburguesa: píxel=(1028.6, 451.0)  xyz=[0.0182, -0.0236, 0.6885]  rango=0.6891 m
+[22:24:17]  agarre_i1
+[22:24:28]    [INFO] Respuesta en 2.642 s:
+[22:24:28]    - caja de hamburguesa: píxel=(1036.3, 442.4)  xyz=[0.0204, -0.0261, 0.693]  rango=0.6938 m
+[22:24:28]  agarre_i2
+[22:24:42]    [INFO] Respuesta en 3.385 s:
+[22:24:42]    - caja de hamburguesa: píxel=(1304.9, 561.1)  xyz=[0.0929, 0.0057, 0.6985]  rango=0.7047 m
+[22:24:42]  agarre_i3
+[22:24:52]    [INFO] Respuesta en 2.856 s:
+[22:24:52]    - caja de hamburguesa: píxel=(852.0, 515.8)  xyz=[-0.0291, -0.0065, 0.698]  rango=0.6986 m
+[22:24:52]  plan
+[22:25:08]    [INFO] Respuesta en 5.531 s:
+[22:25:08]    - caja_libre: píxel=(859.7, 414.3)  xyz=[-0.027, -0.0339, 0.699]  rango=0.7003 m
+[22:25:08]    - bandeja: píxel=(318.6, 399.2)  xyz=[-0.1756, -0.0385, 0.71]  rango=0.7324 m
+[22:25:08]    [INFO] Distancia 3D 'caja_libre' <-> 'bandeja': 0.149 m
+[22:25:08]  éxito exito_antes1 -> exito_bien1
+[22:25:57]    🔑 cuota diaria agotada; se pasa a la clave 5 de 5
+[22:26:04]    [INFO] Respuesta en 5.537 s:
+[22:26:04]  éxito exito_antes2 -> exito_mal1
+[22:26:15]    [INFO] Respuesta en 3.608 s:
+[22:26:15]  éxito exito_antes3 -> exito_bien2
+[22:26:42]    [INFO] Respuesta en 19.396 s:
+[22:26:42]  éxito exito_antes4 -> exito_mal2
+[22:26:47]    [INFO] Respuesta en 3.572 s:
+[22:26:47] FASE 10 · análisis
+[22:26:47]    resultados/tablas.md escrito
+[22:26:47] ✅ TERMINADO en 24.9 min

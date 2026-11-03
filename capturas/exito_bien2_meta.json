@@ -1,0 +1,18 @@
+{
+  "escena": "exito_bien2",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:39:09",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 88.6,
+    "mediana_mm": 698
+  },
+  "desfase_color_profundidad_ms": 16.3,
+  "nota": "DESPUÉS 3 · Caja DENTRO de la bandeja."
+}

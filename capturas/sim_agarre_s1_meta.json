@@ -1,0 +1,15 @@
+{
+  "escena": "sim_agarre_s1",
+  "nota": "agarre seguro (simulado)",
+  "simulada": true,
+  "color": {
+    "ancho": 640,
+    "alto": 480
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 98.7
+  }
+}

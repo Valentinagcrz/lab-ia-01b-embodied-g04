@@ -1,0 +1,6 @@
+escena,particion,relacion,objeto_esperado,u_min,v_min,u_max,v_max,segura,d_real_m,nota
+sim_dist,-,distancia,tapa caja|tapa termo,,,,,,0.1658,centro (simulado)
+sim_dist_borde,-,distancia,borde caja|tapa termo,,,,,,0.1208,borde de la caja (simulado)
+sim_agarre_s1,-,agarre,caja,300,200,430,330,si,,
+sim_agarre_i1,-,agarre,caja,300,200,430,330,no,,
+sim_exito_bien1,-,exito,caja,,,,,si,,

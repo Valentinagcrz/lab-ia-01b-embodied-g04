@@ -1,0 +1,18 @@
+{
+  "escena": "semantica1",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:19:52",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 88.6,
+    "mediana_mm": 699
+  },
+  "desfase_color_profundidad_ms": 9.6,
+  "nota": "D · Dos cajas de hamburguesa; el TERMO encima de UNA de ellas."
+}

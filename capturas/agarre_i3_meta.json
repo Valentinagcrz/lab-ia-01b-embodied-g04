@@ -1,0 +1,18 @@
+{
+  "escena": "agarre_i3",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:47:54",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.4,
+    "mediana_mm": 701
+  },
+  "desfase_color_profundidad_ms": 44.0,
+  "nota": "INSEGURA · Caja VOLCADA o inclinada."
+}

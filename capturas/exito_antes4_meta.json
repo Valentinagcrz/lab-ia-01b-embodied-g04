@@ -1,0 +1,18 @@
+{
+  "escena": "exito_antes4",
+  "ip": "192.168.1.10",
+  "fecha": "2026-10-22T10:39:17",
+  "color": {
+    "ancho": 1920,
+    "alto": 1080
+  },
+  "profundidad": {
+    "ancho": 480,
+    "alto": 270,
+    "unidad": "mm",
+    "pixeles_validos_pct": 89.3,
+    "mediana_mm": 697
+  },
+  "desfase_color_profundidad_ms": 49.8,
+  "nota": "ANTES 4 · Caja fuera de la bandeja."
+}

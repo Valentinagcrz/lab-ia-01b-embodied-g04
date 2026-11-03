@@ -1,0 +1,2057 @@
+[13:40:07] FASE 3 · calibración rápida y verificación
+$ calibrar --escena regla --u1 417 --u2 1673 --ancho-real-m 0.25 --distancia-m 0.51
+{
+  "fx": 2562.24,
+  "fy": 2562.24,
+  "cx": 960.0,
+  "cy": 540.0,
+  "ancho": 1920,
+  "alto": 1080,
+  "fuente": "calibración rápida (regla: 0.25 m a 0.51 m)"
+}
+[OK] Campo de visión horizontal resultante: 41.1°. Guardado en /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/config_camara_kinova.json
+
+[13:40:19]    [OK] Campo de visión horizontal resultante: 41.1°. Guardado en /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/config_camara_kinova.json
+$ consultar --escena regla --tarea puntos --grupo G04 --objeto el borde izquierdo y el borde derecho de la zona cuadriculada de la hoja, sobre la línea horizontal que pasa por el centro de la imagen
+[INFO] Prompt:
+Señala el borde izquierdo y el borde derecho de la zona cuadriculada de la hoja, sobre la línea horizontal que pasa por el centro de la imagen en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 17.5 s:
+```json
+[
+  {"point": [500, 224], "label": "borde izquierdo"},
+  {"point": [500, 870], "label": "borde derecho"}
+]
+```
+
+  - borde izquierdo: píxel=(429.9, 539.5)  xyz=[-0.1074, -0.0001, 0.519]  rango=0.53 m
+  - borde derecho: píxel=(1669.5, 539.5)  xyz=[0.1418, -0.0001, 0.512]  rango=0.5313 m
+[INFO] Distancia 3D 'borde izquierdo' <-> 'borde derecho': 0.249 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/regla_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:40:42]    [INFO] Respuesta en 17.5 s:
+[13:40:42]    - borde izquierdo: píxel=(429.9, 539.5)  xyz=[-0.1074, -0.0001, 0.519]  rango=0.53 m
+[13:40:42]    - borde derecho: píxel=(1669.5, 539.5)  xyz=[0.1418, -0.0001, 0.512]  rango=0.5313 m
+[13:40:42]    [INFO] Distancia 3D 'borde izquierdo' <-> 'borde derecho': 0.249 m
+[13:40:42] FASE 5 · Exp. 1 — desarrollo (iteración 0, solo escenas D) → desarrollo.csv
+$ consultar --escena semantica1 --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba --csv /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 6.356 s:
+[]
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+
+[13:40:52]    [INFO] Respuesta en 6.356 s:
+$ consultar --escena semantica2 --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado --csv /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.618 s:
+```json
+[
+  {"point": [310, 235], "label": "celular al lado de las llaves"}
+]
+```
+
+  - celular al lado de las llaves: píxel=(451.0, 334.5)  xyz=[-0.1035, -0.0418, 0.521]  rango=0.5328 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+
+[13:40:57]    [INFO] Respuesta en 3.618 s:
+[13:40:57]    - celular al lado de las llaves: píxel=(451.0, 334.5)  xyz=[-0.1035, -0.0418, 0.521]  rango=0.5328 m
+$ consultar --escena semantica3 --tarea propio --thinking low --grupo G04 --objeto el cuaderno que está abierto --csv /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el cuaderno que está abierto. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 4.946 s:
+```json
+[
+  {"point": [380, 310], "label": "cuaderno abierto"}
+]
+```
+
+  - cuaderno abierto: píxel=(594.9, 410.0)  xyz=[-0.0738, -0.0263, 0.518]  rango=0.5239 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica3_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+
+[13:41:04]    [INFO] Respuesta en 4.946 s:
+[13:41:04]    - cuaderno abierto: píxel=(594.9, 410.0)  xyz=[-0.0738, -0.0263, 0.518]  rango=0.5239 m
+$ consultar --escena semantica4 --tarea propio --thinking low --grupo G04 --objeto el esfero que está dentro del estuche --csv /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el esfero que está dentro del estuche. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.985 s:
+```json
+[
+  {"point": [348, 191], "label": "esfero dentro del estuche"}
+]
+```
+
+  - esfero dentro del estuche: píxel=(366.5, 375.5)  xyz=[-0.1221, -0.0338, 0.527]  rango=0.542 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica4_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+
+[13:41:08]    [INFO] Respuesta en 2.985 s:
+[13:41:08]    - esfero dentro del estuche: píxel=(366.5, 375.5)  xyz=[-0.1221, -0.0338, 0.527]  rango=0.542 m
+$ consultar --escena burger --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre del carrito que se puede llevar a la bandeja --csv /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre del carrito que se puede llevar a la bandeja. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.741 s:
+```json
+[
+  {"point": [520, 865], "label": "caja de hamburguesa libre"}
+]
+```
+
+  - caja de hamburguesa libre: píxel=(1659.9, 561.1)  xyz=[0.124, 0.0037, 0.454]  rango=0.4706 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/desarrollo.csv
+
+[13:41:14]    [INFO] Respuesta en 3.741 s:
+[13:41:14]    - caja de hamburguesa libre: píxel=(1659.9, 561.1)  xyz=[0.124, 0.0037, 0.454]  rango=0.4706 m
+[13:41:15]    git: 61cba13 prompt congelado
+[13:41:15] FASE 5 · Exp. 1 — prueba: escenas D y P, prompt congelado, thinking low, 3 repeticiones
+[13:41:15]  rep 1 · semantica1
+$ consultar --escena semantica1 --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+ragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-robotics-er-2-preview\nPlease retry in 42.27953512s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-robotics-er-2-preview'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}
+
+[13:41:18]    ⚠️ intento 1 falló (google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing); reintento en 20s
+$ consultar --escena semantica1 --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 1.98 s:
+[]
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:41:41]    [INFO] Respuesta en 1.98 s:
+[13:41:41]  rep 1 · semantica1p
+$ consultar --escena semantica1p --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 5.272 s:
+```json
+[
+  {"point": [330, 480], "label": "caja de hamburguesa libre"}
+]
+```
+
+  - caja de hamburguesa libre: píxel=(921.1, 356.1)  xyz=[-0.0069, -0.0324, 0.452]  rango=0.4532 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:41:48]    [INFO] Respuesta en 5.272 s:
+[13:41:48]    - caja de hamburguesa libre: píxel=(921.1, 356.1)  xyz=[-0.0069, -0.0324, 0.452]  rango=0.4532 m
+[13:41:48]  rep 1 · semantica2
+$ consultar --escena semantica2 --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.285 s:
+```json
+[
+  {"point": [310, 235], "label": "celular izquierdo al lado de las llaves"}
+]
+```
+
+  - celular izquierdo al lado de las llaves: píxel=(451.0, 334.5)  xyz=[-0.1035, -0.0418, 0.521]  rango=0.5328 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:41:53]    [INFO] Respuesta en 3.285 s:
+[13:41:53]    - celular izquierdo al lado de las llaves: píxel=(451.0, 334.5)  xyz=[-0.1035, -0.0418, 0.521]  rango=0.5328 m
+[13:41:53]  rep 1 · semantica2p
+$ consultar --escena semantica2p --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.454 s:
+```json
+[{"point": [520, 840], "label": "celular al lado de las llaves"}]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:41:58]    [INFO] Respuesta en 3.454 s:
+[13:41:58]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[13:41:58]  rep 1 · semantica3
+$ consultar --escena semantica3 --tarea propio --thinking low --grupo G04 --objeto el cuaderno que está abierto
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el cuaderno que está abierto. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.227 s:
+```json
+[
+  {"point": [380, 290], "label": "cuaderno abierto"}
+]
+```
+
+  - cuaderno abierto: píxel=(556.5, 410.0)  xyz=[-0.082, -0.0264, 0.521]  rango=0.5281 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica3_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:42:02]    [INFO] Respuesta en 3.227 s:
+[13:42:02]    - cuaderno abierto: píxel=(556.5, 410.0)  xyz=[-0.082, -0.0264, 0.521]  rango=0.5281 m
+[13:42:02]  rep 1 · semantica3p
+$ consultar --escena semantica3p --tarea propio --thinking low --grupo G04 --objeto el cuaderno que está abierto
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el cuaderno que está abierto. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.796 s:
+```json
+[
+  {"point": [545, 712], "label": "cuaderno abierto"}
+]
+```
+
+  - cuaderno abierto: píxel=(1366.3, 588.1)  xyz=[0.081, 0.0096, 0.511]  rango=0.5175 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica3p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:42:06]    [INFO] Respuesta en 2.796 s:
+[13:42:06]    - cuaderno abierto: píxel=(1366.3, 588.1)  xyz=[0.081, 0.0096, 0.511]  rango=0.5175 m
+[13:42:06]  rep 1 · semantica4
+$ consultar --escena semantica4 --tarea propio --thinking low --grupo G04 --objeto el esfero que está dentro del estuche
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el esfero que está dentro del estuche. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.684 s:
+```json
+[
+  {"point": [348, 189], "label": "esfero dentro del estuche"}
+]
+```
+
+  - esfero dentro del estuche: píxel=(362.7, 375.5)  xyz=[-0.1226, -0.0338, 0.526]  rango=0.5412 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica4_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:42:11]    [INFO] Respuesta en 2.684 s:
+[13:42:11]    - esfero dentro del estuche: píxel=(362.7, 375.5)  xyz=[-0.1226, -0.0338, 0.526]  rango=0.5412 m
+[13:42:11]  rep 1 · semantica4p
+$ consultar --escena semantica4p --tarea propio --thinking low --grupo G04 --objeto el esfero que está dentro del estuche
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el esfero que está dentro del estuche. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.916 s:
+```json
+[
+  {"point": [490, 731], "label": "el esfero que está dentro del estuche"}
+]
+```
+
+  - el esfero que está dentro del estuche: píxel=(1402.8, 528.7)  xyz=[0.0883, -0.0023, 0.511]  rango=0.5186 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica4p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:42:15]    [INFO] Respuesta en 2.916 s:
+[13:42:15]    - el esfero que está dentro del estuche: píxel=(1402.8, 528.7)  xyz=[0.0883, -0.0023, 0.511]  rango=0.5186 m
+[13:42:15]  rep 1 · burger
+$ consultar --escena burger --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre del carrito que se puede llevar a la bandeja
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre del carrito que se puede llevar a la bandeja. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.594 s:
+```json
+[
+  {"point": [550, 865], "label": "caja de hamburguesa libre del carrito"}
+]
+```
+
+  - caja de hamburguesa libre del carrito: píxel=(1659.9, 593.5)  xyz=[0.1235, 0.0094, 0.452]  rango=0.4687 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:42:20]    [INFO] Respuesta en 3.594 s:
+[13:42:20]    - caja de hamburguesa libre del carrito: píxel=(1659.9, 593.5)  xyz=[0.1235, 0.0094, 0.452]  rango=0.4687 m
+[13:42:20]  rep 1 · burgerp
+$ consultar --escena burgerp --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre del carrito que se puede llevar a la bandeja
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre del carrito que se puede llevar a la bandeja. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+agarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-robotics-er-2-preview\nPlease retry in 37.583545647s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-robotics-er-2-preview', 'location': 'global'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '37s'}]}}
+
+[13:42:22]    ⚠️ intento 1 falló (google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing); reintento en 20s
+$ consultar --escena burgerp --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre del carrito que se puede llevar a la bandeja
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre del carrito que se puede llevar a la bandeja. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.068 s:
+```json
+[
+  {"point": [240, 290], "label": "caja de hamburguesa libre del carrito"}
+]
+```
+
+  - caja de hamburguesa libre del carrito: píxel=(556.5, 259.0)  xyz=[-0.0833, -0.058, 0.529]  rango=0.5387 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burgerp_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:42:46]    [INFO] Respuesta en 3.068 s:
+[13:42:46]    - caja de hamburguesa libre del carrito: píxel=(556.5, 259.0)  xyz=[-0.0833, -0.058, 0.529]  rango=0.5387 m
+[13:42:47]  rep 1 · burger (ingenuo)
+$ consultar --escena burger --tarea puntos --thinking low --grupo G04 --objeto la caja
+[INFO] Prompt:
+Señala la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.652 s:
+```json
+[
+  {"point": [375, 324], "label": "caja"}
+]
+```
+
+  - caja: píxel=(621.8, 404.6)  xyz=[-0.0585, -0.0234, 0.443]  rango=0.4475 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:42:51]    [INFO] Respuesta en 2.652 s:
+[13:42:51]    - caja: píxel=(621.8, 404.6)  xyz=[-0.0585, -0.0234, 0.443]  rango=0.4475 m
+[13:42:51]  rep 1 · burgerp (ingenuo)
+$ consultar --escena burgerp --tarea puntos --thinking low --grupo G04 --objeto la caja
+[INFO] Prompt:
+Señala la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-robotics-er-2-preview\nPlease retry in 12h17m7.063247217s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-robotics-er-2-preview'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44227s'}]}}
+
+[13:42:53]    ⚠️ intento 1 falló (google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing); reintento en 20s
+$ consultar --escena burgerp --tarea puntos --thinking low --grupo G04 --objeto la caja
+[INFO] Prompt:
+Señala la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.219 s:
+```json
+[
+  {"point": [245, 292], "label": "caja"},
+  {"point": [318, 831], "label": "caja"}
+]
+```
+
+  - caja: píxel=(560.3, 264.4)  xyz=[-0.0825, -0.0569, 0.529]  rango=0.5384 m
+  - caja: píxel=(1594.7, 343.1)  xyz=None  rango=None m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burgerp_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:43:16]    [INFO] Respuesta en 2.219 s:
+[13:43:16]    - caja: píxel=(560.3, 264.4)  xyz=[-0.0825, -0.0569, 0.529]  rango=0.5384 m
+[13:43:16]    - caja: píxel=(1594.7, 343.1)  xyz=None  rango=None m
+[13:43:16]  rep 2 · semantica1
+$ consultar --escena semantica1 --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-robotics-er-2-preview\nPlease retry in 12h16m41.526249598s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-robotics-er-2-preview'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44201s'}]}}
+
+[13:43:18]    ⚠️ intento 1 falló (google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing); reintento en 20s
+$ consultar --escena semantica1 --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.849 s:
+[]
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:43:42]    [INFO] Respuesta en 2.849 s:
+[13:43:42]  rep 2 · semantica1p
+$ consultar --escena semantica1p --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-robotics-er-2-preview\nPlease retry in 12h16m15.490173351s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-robotics-er-2-preview'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44175s'}]}}
+
+[13:43:44]    ⚠️ intento 1 falló (google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing); reintento en 20s
+$ consultar --escena semantica1p --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.325 s:
+```json
+[
+  {"point": [330, 480], "label": "caja de hamburguesa libre y segura para tomar desde arriba"}
+]
+```
+
+  - caja de hamburguesa libre y segura para tomar desde arriba: píxel=(921.1, 356.1)  xyz=[-0.0069, -0.0324, 0.452]  rango=0.4532 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:44:10]    [INFO] Respuesta en 3.325 s:
+[13:44:10]    - caja de hamburguesa libre y segura para tomar desde arriba: píxel=(921.1, 356.1)  xyz=[-0.0069, -0.0324, 0.452]  rango=0.4532 m
+[13:44:10]  rep 2 · semantica2
+$ consultar --escena semantica2 --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-robotics-er-2-preview\nPlease retry in 12h15m44.947644352s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-robotics-er-2-preview'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44144s'}]}}
+
+[13:44:15]    ⚠️ intento 1 falló (google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing); reintento en 20s
+[13:52:18] FASE 3 · calibración rápida y verificación
+$ calibrar --escena regla --u1 417 --u2 1673 --ancho-real-m 0.25 --distancia-m 0.51
+{
+  "fx": 2562.24,
+  "fy": 2562.24,
+  "cx": 960.0,
+  "cy": 540.0,
+  "ancho": 1920,
+  "alto": 1080,
+  "fuente": "calibración rápida (regla: 0.25 m a 0.51 m)"
+}
+[OK] Campo de visión horizontal resultante: 41.1°. Guardado en /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/config_camara_kinova.json
+
+[13:52:32]    [OK] Campo de visión horizontal resultante: 41.1°. Guardado en /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/config_camara_kinova.json
+$ consultar --escena regla --tarea puntos --grupo G04 --objeto el borde izquierdo y el borde derecho de la zona cuadriculada de la hoja, sobre la línea horizontal que pasa por el centro de la imagen
+[INFO] Prompt:
+Señala el borde izquierdo y el borde derecho de la zona cuadriculada de la hoja, sobre la línea horizontal que pasa por el centro de la imagen en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-robotics-er-2-preview\nPlease retry in 12h7m19.798142682s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-robotics-er-2-preview'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43639s'}]}}
+
+[13:52:41]    ⚠️ intento 1 falló (google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing); reintento en 20s
+$ consultar --escena regla --tarea puntos --grupo G04 --objeto el borde izquierdo y el borde derecho de la zona cuadriculada de la hoja, sobre la línea horizontal que pasa por el centro de la imagen
+[INFO] Prompt:
+Señala el borde izquierdo y el borde derecho de la zona cuadriculada de la hoja, sobre la línea horizontal que pasa por el centro de la imagen en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+a/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-robotics-er-2-preview\nPlease retry in 12h6m55.81057073s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-robotics-er-2-preview'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43615s'}]}}
+
+[13:53:04]    ⚠️ intento 2 falló (google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing); reintento en 40s
+[13:54:07] Inicio con 4 clave(s). Las consultas ya hechas se omiten.
+[13:54:07] FASE 3 · calibración rápida y verificación
+$ calibrar --escena regla --u1 417 --u2 1673 --ancho-real-m 0.25 --distancia-m 0.51
+{
+  "fx": 2562.24,
+  "fy": 2562.24,
+  "cx": 960.0,
+  "cy": 540.0,
+  "ancho": 1920,
+  "alto": 1080,
+  "fuente": "calibración rápida (regla: 0.25 m a 0.51 m)"
+}
+[OK] Campo de visión horizontal resultante: 41.1°. Guardado en /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/config_camara_kinova.json
+
+[13:54:09]    [OK] Campo de visión horizontal resultante: 41.1°. Guardado en /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/config_camara_kinova.json
+[13:54:10]    (ya hecha, se omite: regla puntos low)
+[13:54:10] FASE 5 · Exp. 1 — desarrollo (iteración 0, solo escenas D) → desarrollo.csv
+[13:54:11]    (ya hecha, se omite: semantica1 propio low)
+[13:54:11]    (ya hecha, se omite: semantica2 propio low)
+[13:54:11]    (ya hecha, se omite: semantica3 propio low)
+[13:54:11]    (ya hecha, se omite: semantica4 propio low)
+[13:54:11]    (ya hecha, se omite: burger propio low)
+[13:54:11] FASE 5 · Exp. 1 — prueba: escenas D y P, prompt congelado, thinking low, 3 repeticiones
+[13:54:11]  rep 1 · semantica1
+[13:54:11]    (ya hecha, se omite: semantica1 propio low)
+[13:54:11]  rep 1 · semantica1p
+[13:54:11]    (ya hecha, se omite: semantica1p propio low)
+[13:54:11]  rep 1 · semantica2
+[13:54:11]    (ya hecha, se omite: semantica2 propio low)
+[13:54:11]  rep 1 · semantica2p
+[13:54:11]    (ya hecha, se omite: semantica2p propio low)
+[13:54:11]  rep 1 · semantica3
+[13:54:11]    (ya hecha, se omite: semantica3 propio low)
+[13:54:11]  rep 1 · semantica3p
+[13:54:11]    (ya hecha, se omite: semantica3p propio low)
+[13:54:11]  rep 1 · semantica4
+[13:54:11]    (ya hecha, se omite: semantica4 propio low)
+[13:54:11]  rep 1 · semantica4p
+[13:54:11]    (ya hecha, se omite: semantica4p propio low)
+[13:54:11]  rep 1 · burger
+[13:54:11]    (ya hecha, se omite: burger propio low)
+[13:54:11]  rep 1 · burgerp
+[13:54:11]    (ya hecha, se omite: burgerp propio low)
+[13:54:11]  rep 1 · burger (ingenuo)
+[13:54:11]    (ya hecha, se omite: burger puntos low)
+[13:54:11]  rep 1 · burgerp (ingenuo)
+[13:54:11]    (ya hecha, se omite: burgerp puntos low)
+[13:54:11]  rep 2 · semantica1
+[13:54:11]    (ya hecha, se omite: semantica1 propio low)
+[13:54:11]  rep 2 · semantica1p
+[13:54:11]    (ya hecha, se omite: semantica1p propio low)
+[13:54:11]  rep 2 · semantica2
+$ consultar --escena semantica2 --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.109 s:
+```json
+[{"point": [308, 235], "label": "celular al lado de las llaves"}]
+```
+
+  - celular al lado de las llaves: píxel=(451.0, 332.3)  xyz=[-0.1035, -0.0422, 0.521]  rango=0.5329 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:54:17]    [INFO] Respuesta en 3.109 s:
+[13:54:17]    - celular al lado de las llaves: píxel=(451.0, 332.3)  xyz=[-0.1035, -0.0422, 0.521]  rango=0.5329 m
+[13:54:17]  rep 2 · semantica2p
+$ consultar --escena semantica2p --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.783 s:
+```json
+[
+  {"point": [520, 840], "label": "celular al lado de las llaves"}
+]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:54:29]    [INFO] Respuesta en 2.783 s:
+[13:54:29]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[13:54:29]  rep 2 · semantica3
+$ consultar --escena semantica3 --tarea propio --thinking low --grupo G04 --objeto el cuaderno que está abierto
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el cuaderno que está abierto. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.615 s:
+```json
+[
+  {"point": [400, 300], "label": "cuaderno abierto"}
+]
+```
+
+  - cuaderno abierto: píxel=(575.7, 431.6)  xyz=[-0.0778, -0.022, 0.519]  rango=0.5253 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica3_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:54:41]    [INFO] Respuesta en 2.615 s:
+[13:54:41]    - cuaderno abierto: píxel=(575.7, 431.6)  xyz=[-0.0778, -0.022, 0.519]  rango=0.5253 m
+[13:54:41]  rep 2 · semantica3p
+$ consultar --escena semantica3p --tarea propio --thinking low --grupo G04 --objeto el cuaderno que está abierto
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el cuaderno que está abierto. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.255 s:
+```json
+[{"point": [548, 712], "label": "cuaderno abierto"}]
+```
+
+  - cuaderno abierto: píxel=(1366.3, 591.3)  xyz=[0.081, 0.0102, 0.5105]  rango=0.517 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica3p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:54:54]    [INFO] Respuesta en 2.255 s:
+[13:54:54]    - cuaderno abierto: píxel=(1366.3, 591.3)  xyz=[0.081, 0.0102, 0.5105]  rango=0.517 m
+[13:54:54]  rep 2 · semantica4
+$ consultar --escena semantica4 --tarea propio --thinking low --grupo G04 --objeto el esfero que está dentro del estuche
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el esfero que está dentro del estuche. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.737 s:
+```json
+[
+  {"point": [342, 192], "label": "esfero dentro del estuche"}
+]
+```
+
+  - esfero dentro del estuche: píxel=(368.4, 369.0)  xyz=[-0.1221, -0.0353, 0.529]  rango=0.5441 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica4_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:55:10]    [INFO] Respuesta en 2.737 s:
+[13:55:10]    - esfero dentro del estuche: píxel=(368.4, 369.0)  xyz=[-0.1221, -0.0353, 0.529]  rango=0.5441 m
+[13:55:10]  rep 2 · semantica4p
+$ consultar --escena semantica4p --tarea propio --thinking low --grupo G04 --objeto el esfero que está dentro del estuche
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el esfero que está dentro del estuche. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.485 s:
+```json
+[{"point": [490, 730], "label": "esfero dentro del estuche"}]
+```
+
+  - esfero dentro del estuche: píxel=(1400.9, 528.7)  xyz=[0.0879, -0.0023, 0.511]  rango=0.5185 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica4p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:55:20]    [INFO] Respuesta en 2.485 s:
+[13:55:20]    - esfero dentro del estuche: píxel=(1400.9, 528.7)  xyz=[0.0879, -0.0023, 0.511]  rango=0.5185 m
+[13:55:20]  rep 2 · burger
+$ consultar --escena burger --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre del carrito que se puede llevar a la bandeja
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre del carrito que se puede llevar a la bandeja. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.3 s:
+```json
+[
+  {"point": [500, 860], "label": "caja de hamburguesa libre"}
+]
+```
+
+  - caja de hamburguesa libre: píxel=(1650.3, 539.5)  xyz=[0.1223, -0.0001, 0.454]  rango=0.4702 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:55:33]    [INFO] Respuesta en 3.3 s:
+[13:55:33]    - caja de hamburguesa libre: píxel=(1650.3, 539.5)  xyz=[0.1223, -0.0001, 0.454]  rango=0.4702 m
+[13:55:33]  rep 2 · burgerp
+$ consultar --escena burgerp --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre del carrito que se puede llevar a la bandeja
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre del carrito que se puede llevar a la bandeja. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.607 s:
+```json
+[
+  {"point": [244, 292], "label": "caja de hamburguesa libre"}
+]
+```
+
+  - caja de hamburguesa libre: píxel=(560.3, 263.3)  xyz=[-0.0825, -0.0571, 0.529]  rango=0.5384 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burgerp_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:55:46]    [INFO] Respuesta en 2.607 s:
+[13:55:46]    - caja de hamburguesa libre: píxel=(560.3, 263.3)  xyz=[-0.0825, -0.0571, 0.529]  rango=0.5384 m
+[13:55:46]  rep 2 · burger (ingenuo)
+$ consultar --escena burger --tarea puntos --thinking low --grupo G04 --objeto la caja
+[INFO] Prompt:
+Señala la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.533 s:
+```json
+[
+  {"point": [353, 322], "label": "caja"}
+]
+```
+
+  - caja: píxel=(617.9, 380.9)  xyz=[-0.0594, -0.0276, 0.445]  rango=0.4498 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:55:58]    [INFO] Respuesta en 2.533 s:
+[13:55:58]    - caja: píxel=(617.9, 380.9)  xyz=[-0.0594, -0.0276, 0.445]  rango=0.4498 m
+[13:55:58]  rep 2 · burgerp (ingenuo)
+$ consultar --escena burgerp --tarea puntos --thinking low --grupo G04 --objeto la caja
+[INFO] Prompt:
+Señala la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.661 s:
+```json
+[
+  {"point": [248, 292], "label": "caja"},
+  {"point": [375, 831], "label": "caja"}
+]
+```
+
+  - caja: píxel=(560.3, 267.6)  xyz=None  rango=None m
+  - caja: píxel=(1594.7, 404.6)  xyz=None  rango=None m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burgerp_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:56:12]    [INFO] Respuesta en 2.661 s:
+[13:56:12]    - caja: píxel=(560.3, 267.6)  xyz=None  rango=None m
+[13:56:12]    - caja: píxel=(1594.7, 404.6)  xyz=None  rango=None m
+[13:56:12]  rep 3 · semantica1
+$ consultar --escena semantica1 --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.247 s:
+[]
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:56:25]    [INFO] Respuesta en 2.247 s:
+[13:56:25]  rep 3 · semantica1p
+$ consultar --escena semantica1p --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre y segura para tomar desde arriba
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre y segura para tomar desde arriba. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.635 s:
+```json
+[{"point": [330, 480], "label": "caja de hamburguesa libre"}]
+```
+
+  - caja de hamburguesa libre: píxel=(921.1, 356.1)  xyz=[-0.0069, -0.0324, 0.452]  rango=0.4532 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:56:38]    [INFO] Respuesta en 2.635 s:
+[13:56:38]    - caja de hamburguesa libre: píxel=(921.1, 356.1)  xyz=[-0.0069, -0.0324, 0.452]  rango=0.4532 m
+[13:56:38]  rep 3 · semantica2
+$ consultar --escena semantica2 --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+^^^
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/tenacity/__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/tenacity/__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/_api_client.py", line 1609, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'The caller does not have permission', 'status': 'PERMISSION_DENIED'}}
+
+[13:56:49]    ⚠️ intento 1 falló (google.genai.errors.ClientError: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'The caller does not have permission', 'status': 'PERMISSION_DENIED'}); reintento en 20s
+$ consultar --escena semantica2 --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.825 s:
+```json
+[
+  {"point": [310, 235], "label": "celular al lado de las llaves"}
+]
+```
+
+  - celular al lado de las llaves: píxel=(451.0, 334.5)  xyz=[-0.1035, -0.0418, 0.521]  rango=0.5328 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:57:13]    [INFO] Respuesta en 2.825 s:
+[13:57:13]    - celular al lado de las llaves: píxel=(451.0, 334.5)  xyz=[-0.1035, -0.0418, 0.521]  rango=0.5328 m
+[13:57:13]  rep 3 · semantica2p
+$ consultar --escena semantica2p --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.582 s:
+```json
+[
+  {"point": [520, 840], "label": "celular al lado de las llaves"}
+]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:57:26]    [INFO] Respuesta en 2.582 s:
+[13:57:26]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[13:57:26]  rep 3 · semantica3
+$ consultar --escena semantica3 --tarea propio --thinking low --grupo G04 --objeto el cuaderno que está abierto
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el cuaderno que está abierto. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.54 s:
+```json
+[
+  {"point": [384, 310], "label": "cuaderno abierto"}
+]
+```
+
+  - cuaderno abierto: píxel=(594.9, 414.3)  xyz=[-0.0738, -0.0254, 0.518]  rango=0.5238 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica3_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:57:39]    [INFO] Respuesta en 2.54 s:
+[13:57:39]    - cuaderno abierto: píxel=(594.9, 414.3)  xyz=[-0.0738, -0.0254, 0.518]  rango=0.5238 m
+[13:57:39]  rep 3 · semantica3p
+$ consultar --escena semantica3p --tarea propio --thinking low --grupo G04 --objeto el cuaderno que está abierto
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el cuaderno que está abierto. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.449 s:
+```json
+[{"point": [550, 710], "label": "cuaderno abierto"}]
+```
+
+  - cuaderno abierto: píxel=(1362.5, 593.5)  xyz=[0.0801, 0.0106, 0.51]  rango=0.5164 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica3p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:57:52]    [INFO] Respuesta en 2.449 s:
+[13:57:52]    - cuaderno abierto: píxel=(1362.5, 593.5)  xyz=[0.0801, 0.0106, 0.51]  rango=0.5164 m
+[13:57:52]  rep 3 · semantica4
+$ consultar --escena semantica4 --tarea propio --thinking low --grupo G04 --objeto el esfero que está dentro del estuche
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el esfero que está dentro del estuche. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.513 s:
+```json
+[
+  {"point": [340, 191], "label": "esfero dentro del estuche"}
+]
+```
+
+  - esfero dentro del estuche: píxel=(366.5, 366.9)  xyz=[-0.1225, -0.0357, 0.529]  rango=0.5442 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica4_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:58:06]    [INFO] Respuesta en 3.513 s:
+[13:58:06]    - esfero dentro del estuche: píxel=(366.5, 366.9)  xyz=[-0.1225, -0.0357, 0.529]  rango=0.5442 m
+[13:58:06]  rep 3 · semantica4p
+$ consultar --escena semantica4p --tarea propio --thinking low --grupo G04 --objeto el esfero que está dentro del estuche
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el esfero que está dentro del estuche. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.396 s:
+```json
+[{"point": [494, 731], "label": "esfero dentro del estuche"}]
+```
+
+  - esfero dentro del estuche: píxel=(1402.8, 533.0)  xyz=[0.088, -0.0014, 0.5095]  rango=0.5171 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica4p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:58:18]    [INFO] Respuesta en 2.396 s:
+[13:58:18]    - esfero dentro del estuche: píxel=(1402.8, 533.0)  xyz=[0.088, -0.0014, 0.5095]  rango=0.5171 m
+[13:58:18]  rep 3 · burger
+$ consultar --escena burger --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre del carrito que se puede llevar a la bandeja
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre del carrito que se puede llevar a la bandeja. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.052 s:
+[]
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:58:31]    [INFO] Respuesta en 3.052 s:
+[13:58:31]  rep 3 · burgerp
+$ consultar --escena burgerp --tarea propio --thinking low --grupo G04 --objeto la caja de hamburguesa libre del carrito que se puede llevar a la bandeja
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica la caja de hamburguesa libre del carrito que se puede llevar a la bandeja. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.298 s:
+```json
+[
+  {"point": [248, 292], "label": "caja de hamburguesa libre del carrito"}
+]
+```
+
+  - caja de hamburguesa libre del carrito: píxel=(560.3, 267.6)  xyz=None  rango=None m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burgerp_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:58:44]    [INFO] Respuesta en 2.298 s:
+[13:58:44]    - caja de hamburguesa libre del carrito: píxel=(560.3, 267.6)  xyz=None  rango=None m
+[13:58:44]  rep 3 · burger (ingenuo)
+$ consultar --escena burger --tarea puntos --thinking low --grupo G04 --objeto la caja
+[INFO] Prompt:
+Señala la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.415 s:
+```json
+[
+  {"point": [353, 322], "label": "caja"}
+]
+```
+
+  - caja: píxel=(617.9, 380.9)  xyz=[-0.0594, -0.0276, 0.445]  rango=0.4498 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:58:57]    [INFO] Respuesta en 2.415 s:
+[13:58:57]    - caja: píxel=(617.9, 380.9)  xyz=[-0.0594, -0.0276, 0.445]  rango=0.4498 m
+[13:58:57]  rep 3 · burgerp (ingenuo)
+$ consultar --escena burgerp --tarea puntos --thinking low --grupo G04 --objeto la caja
+[INFO] Prompt:
+Señala la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+ia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-robotics-er-2-preview\nPlease retry in 12h51.708685009s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-robotics-er-2-preview'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43251s'}]}}
+
+[13:59:08]    🔑 cuota diaria agotada; se pasa a la clave 2 de 4
+$ consultar --escena burgerp --tarea puntos --thinking low --grupo G04 --objeto la caja
+[INFO] Prompt:
+Señala la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.559 s:
+```json
+[
+  {"point": [245, 290], "label": "caja"},
+  {"point": [318, 830], "label": "caja"}
+]
+```
+
+  - caja: píxel=(556.5, 264.4)  xyz=[-0.0833, -0.0569, 0.529]  rango=0.5385 m
+  - caja: píxel=(1592.8, 343.1)  xyz=None  rango=None m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burgerp_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:59:23]    [INFO] Respuesta en 2.559 s:
+[13:59:23]    - caja: píxel=(556.5, 264.4)  xyz=[-0.0833, -0.0569, 0.529]  rango=0.5385 m
+[13:59:23]    - caja: píxel=(1592.8, 343.1)  xyz=None  rango=None m
+[13:59:23] FASE 6 · Exp. 2 — cajas delimitadoras, 5 repeticiones
+[13:59:23]  semantica1 rep 1
+$ consultar --escena semantica1 --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 4.364 s:
+```json
+[
+  {"box_2d": [0, 84, 402, 413], "label": "botella de Coca-Cola"},
+  {"box_2d": [0, 171, 818, 477], "label": "cajón de plástico"},
+  {"box_2d": [0, 725, 786, 1000], "label": "cajón de plástico"}
+]
+```
+
+  - botella de Coca-Cola: píxel=(476.9, 216.9)  xyz=[-0.1007, -0.0673, 0.534]  rango=0.5476 m
+  - cajón de plástico: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+  - cajón de plástico: píxel=(1655.1, 424.0)  xyz=[0.1408, -0.0235, 0.519]  rango=0.5383 m
+[INFO] Distancia 3D 'botella de Coca-Cola' <-> 'cajón de plástico': 0.223 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:59:38]    [INFO] Respuesta en 4.364 s:
+[13:59:38]    - botella de Coca-Cola: píxel=(476.9, 216.9)  xyz=[-0.1007, -0.0673, 0.534]  rango=0.5476 m
+[13:59:38]    - cajón de plástico: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+[13:59:38]    - cajón de plástico: píxel=(1655.1, 424.0)  xyz=[0.1408, -0.0235, 0.519]  rango=0.5383 m
+[13:59:38]    [INFO] Distancia 3D 'botella de Coca-Cola' <-> 'cajón de plástico': 0.223 m
+[13:59:38]  semantica1 rep 2
+$ consultar --escena semantica1 --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 3.315 s:
+```json
+[
+  {"box_2d": [0, 85, 401, 414], "label": "botella de Coca-Cola"},
+  {"box_2d": [0, 171, 818, 477], "label": "cajón de plástico izquierdo"},
+  {"box_2d": [0, 723, 781, 1000], "label": "cajón de plástico derecho"}
+]
+```
+
+  - botella de Coca-Cola: píxel=(478.8, 216.3)  xyz=[-0.1003, -0.0675, 0.534]  rango=0.5475 m
+  - cajón de plástico izquierdo: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+  - cajón de plástico derecho: píxel=(1653.2, 421.3)  xyz=[0.1404, -0.024, 0.519]  rango=0.5382 m
+[INFO] Distancia 3D 'botella de Coca-Cola' <-> 'cajón de plástico izquierdo': 0.223 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[13:59:49]    [INFO] Respuesta en 3.315 s:
+[13:59:49]    - botella de Coca-Cola: píxel=(478.8, 216.3)  xyz=[-0.1003, -0.0675, 0.534]  rango=0.5475 m
+[13:59:49]    - cajón de plástico izquierdo: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+[13:59:49]    - cajón de plástico derecho: píxel=(1653.2, 421.3)  xyz=[0.1404, -0.024, 0.519]  rango=0.5382 m
+[13:59:49]    [INFO] Distancia 3D 'botella de Coca-Cola' <-> 'cajón de plástico izquierdo': 0.223 m
+[13:59:49]  semantica1 rep 3
+$ consultar --escena semantica1 --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 3.617 s:
+```json
+[
+  {"box_2d": [0, 85, 401, 412], "label": "botella"},
+  {"box_2d": [0, 171, 818, 478], "label": "cajón de plástico"},
+  {"box_2d": [0, 723, 784, 1000], "label": "cajón de plástico"}
+]
+```
+
+  - botella: píxel=(476.9, 216.3)  xyz=[-0.1007, -0.0675, 0.534]  rango=0.5476 m
+  - cajón de plástico: píxel=(622.7, 441.3)  xyz=[-0.0429, -0.0126, 0.326]  rango=0.3291 m
+  - cajón de plástico: píxel=(1653.2, 423.0)  xyz=[0.1404, -0.0237, 0.519]  rango=0.5382 m
+[INFO] Distancia 3D 'botella' <-> 'cajón de plástico': 0.223 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:00:03]    [INFO] Respuesta en 3.617 s:
+[14:00:03]    - botella: píxel=(476.9, 216.3)  xyz=[-0.1007, -0.0675, 0.534]  rango=0.5476 m
+[14:00:03]    - cajón de plástico: píxel=(622.7, 441.3)  xyz=[-0.0429, -0.0126, 0.326]  rango=0.3291 m
+[14:00:03]    - cajón de plástico: píxel=(1653.2, 423.0)  xyz=[0.1404, -0.0237, 0.519]  rango=0.5382 m
+[14:00:03]    [INFO] Distancia 3D 'botella' <-> 'cajón de plástico': 0.223 m
+[14:00:03]  semantica1 rep 4
+$ consultar --escena semantica1 --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 3.232 s:
+```json
+[
+  {"box_2d": [0, 84, 401, 413], "label": "botella de Coca-Cola"},
+  {"box_2d": [0, 171, 818, 477], "label": "organizador de plástico izquierdo"},
+  {"box_2d": [0, 725, 785, 1000], "label": "organizador de plástico derecho"}
+]
+```
+
+  - botella de Coca-Cola: píxel=(476.9, 216.3)  xyz=[-0.1007, -0.0675, 0.534]  rango=0.5476 m
+  - organizador de plástico izquierdo: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+  - organizador de plástico derecho: píxel=(1655.1, 423.5)  xyz=[0.1408, -0.0236, 0.519]  rango=0.5383 m
+[INFO] Distancia 3D 'botella de Coca-Cola' <-> 'organizador de plástico izquierdo': 0.223 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:00:15]    [INFO] Respuesta en 3.232 s:
+[14:00:15]    - botella de Coca-Cola: píxel=(476.9, 216.3)  xyz=[-0.1007, -0.0675, 0.534]  rango=0.5476 m
+[14:00:15]    - organizador de plástico izquierdo: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+[14:00:15]    - organizador de plástico derecho: píxel=(1655.1, 423.5)  xyz=[0.1408, -0.0236, 0.519]  rango=0.5383 m
+[14:00:15]    [INFO] Distancia 3D 'botella de Coca-Cola' <-> 'organizador de plástico izquierdo': 0.223 m
+[14:00:15]  semantica1 rep 5
+$ consultar --escena semantica1 --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 3.479 s:
+```json
+[
+  {"box_2d": [0, 84, 401, 413], "label": "botella"},
+  {"box_2d": [0, 171, 818, 477], "label": "organizador de plástico"},
+  {"box_2d": [0, 725, 784, 1000], "label": "organizador de plástico"}
+]
+```
+
+  - botella: píxel=(476.9, 216.3)  xyz=[-0.1007, -0.0675, 0.534]  rango=0.5476 m
+  - organizador de plástico: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+  - organizador de plástico: píxel=(1655.1, 423.0)  xyz=[0.1408, -0.0237, 0.519]  rango=0.5383 m
+[INFO] Distancia 3D 'botella' <-> 'organizador de plástico': 0.223 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica1_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:00:29]    [INFO] Respuesta en 3.479 s:
+[14:00:29]    - botella: píxel=(476.9, 216.3)  xyz=[-0.1007, -0.0675, 0.534]  rango=0.5476 m
+[14:00:29]    - organizador de plástico: píxel=(621.8, 441.3)  xyz=[-0.043, -0.0126, 0.326]  rango=0.3291 m
+[14:00:29]    - organizador de plástico: píxel=(1655.1, 423.0)  xyz=[0.1408, -0.0237, 0.519]  rango=0.5383 m
+[14:00:29]    [INFO] Distancia 3D 'botella' <-> 'organizador de plástico': 0.223 m
+[14:00:29]  burger rep 1
+$ consultar --escena burger --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 3.331 s:
+```json
+[
+  {"box_2d": [0, 199, 569, 474], "label": "disco duro"},
+  {"box_2d": [0, 150, 750, 497], "label": "caja de plástico"},
+  {"box_2d": [0, 696, 915, 1000], "label": "caja de plástico"}
+]
+```
+
+  - disco duro: píxel=(645.7, 307.0)  xyz=[-0.0558, -0.0414, 0.455]  rango=0.4603 m
+  - caja de plástico: píxel=(620.8, 404.6)  xyz=[-0.0586, -0.0234, 0.443]  rango=0.4475 m
+  - caja de plástico: píxel=(1627.3, 493.6)  xyz=[0.1182, -0.0082, 0.454]  rango=0.4692 m
+[INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:00:41]    [INFO] Respuesta en 3.331 s:
+[14:00:41]    - disco duro: píxel=(645.7, 307.0)  xyz=[-0.0558, -0.0414, 0.455]  rango=0.4603 m
+[14:00:41]    - caja de plástico: píxel=(620.8, 404.6)  xyz=[-0.0586, -0.0234, 0.443]  rango=0.4475 m
+[14:00:41]    - caja de plástico: píxel=(1627.3, 493.6)  xyz=[0.1182, -0.0082, 0.454]  rango=0.4692 m
+[14:00:41]    [INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[14:00:41]  burger rep 2
+$ consultar --escena burger --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 3.571 s:
+```json
+[
+  {"box_2d": [0, 200, 568, 467], "label": "disco duro"},
+  {"box_2d": [0, 148, 750, 498], "label": "caja de plástico"},
+  {"box_2d": [0, 696, 915, 1000], "label": "caja de plástico"}
+]
+```
+
+  - disco duro: píxel=(640.0, 306.4)  xyz=[-0.0568, -0.0415, 0.455]  rango=0.4604 m
+  - caja de plástico: píxel=(619.8, 404.6)  xyz=[-0.0588, -0.0234, 0.443]  rango=0.4475 m
+  - caja de plástico: píxel=(1627.3, 493.6)  xyz=[0.1182, -0.0082, 0.454]  rango=0.4692 m
+[INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:00:55]    [INFO] Respuesta en 3.571 s:
+[14:00:55]    - disco duro: píxel=(640.0, 306.4)  xyz=[-0.0568, -0.0415, 0.455]  rango=0.4604 m
+[14:00:55]    - caja de plástico: píxel=(619.8, 404.6)  xyz=[-0.0588, -0.0234, 0.443]  rango=0.4475 m
+[14:00:55]    - caja de plástico: píxel=(1627.3, 493.6)  xyz=[0.1182, -0.0082, 0.454]  rango=0.4692 m
+[14:00:55]    [INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[14:00:55]  burger rep 3
+$ consultar --escena burger --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 3.696 s:
+```json
+[
+  {"box_2d": [0, 200, 570, 474], "label": "disco duro"},
+  {"box_2d": [0, 150, 752, 498], "label": "caja de plástico"},
+  {"box_2d": [0, 694, 915, 1000], "label": "caja de plástico"}
+]
+```
+
+  - disco duro: píxel=(646.7, 307.5)  xyz=[-0.0556, -0.0413, 0.455]  rango=0.4602 m
+  - caja de plástico: píxel=(621.8, 405.7)  xyz=[-0.0585, -0.0232, 0.443]  rango=0.4474 m
+  - caja de plástico: píxel=(1625.4, 493.6)  xyz=[0.1179, -0.0082, 0.454]  rango=0.4691 m
+[INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:01:08]    [INFO] Respuesta en 3.696 s:
+[14:01:08]    - disco duro: píxel=(646.7, 307.5)  xyz=[-0.0556, -0.0413, 0.455]  rango=0.4602 m
+[14:01:08]    - caja de plástico: píxel=(621.8, 405.7)  xyz=[-0.0585, -0.0232, 0.443]  rango=0.4474 m
+[14:01:08]    - caja de plástico: píxel=(1625.4, 493.6)  xyz=[0.1179, -0.0082, 0.454]  rango=0.4691 m
+[14:01:08]    [INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[14:01:08]  burger rep 4
+$ consultar --escena burger --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 3.329 s:
+```json
+[
+  {"box_2d": [0, 201, 570, 471], "label": "disco duro externo"},
+  {"box_2d": [0, 150, 752, 497], "label": "caja de plástico"},
+  {"box_2d": [0, 696, 915, 1000], "label": "caja de plástico"}
+]
+```
+
+  - disco duro externo: píxel=(644.8, 307.5)  xyz=[-0.056, -0.0413, 0.455]  rango=0.4603 m
+  - caja de plástico: píxel=(620.8, 405.7)  xyz=[-0.0586, -0.0232, 0.443]  rango=0.4475 m
+  - caja de plástico: píxel=(1627.3, 493.6)  xyz=[0.1182, -0.0082, 0.454]  rango=0.4692 m
+[INFO] Distancia 3D 'disco duro externo' <-> 'caja de plástico': 0.022 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:01:20]    [INFO] Respuesta en 3.329 s:
+[14:01:20]    - disco duro externo: píxel=(644.8, 307.5)  xyz=[-0.056, -0.0413, 0.455]  rango=0.4603 m
+[14:01:20]    - caja de plástico: píxel=(620.8, 405.7)  xyz=[-0.0586, -0.0232, 0.443]  rango=0.4475 m
+[14:01:20]    - caja de plástico: píxel=(1627.3, 493.6)  xyz=[0.1182, -0.0082, 0.454]  rango=0.4692 m
+[14:01:20]    [INFO] Distancia 3D 'disco duro externo' <-> 'caja de plástico': 0.022 m
+[14:01:20]  burger rep 5
+$ consultar --escena burger --tarea cajas --objeto  --grupo G04
+[INFO] Prompt:
+Detecta como máximo 10 objetos sobre la mesa. Responde SOLO con una lista JSON con el formato [{"box_2d": [ymin, xmin, ymax, xmax], "label": "<nombre>"}]. Las coordenadas van normalizadas a 0-1000.
+
+[INFO] Respuesta en 3.225 s:
+```json
+[
+  {"box_2d": [0, 201, 571, 473], "label": "disco duro"},
+  {"box_2d": [0, 149, 755, 498], "label": "caja de plástico"},
+  {"box_2d": [0, 696, 911, 1000], "label": "caja de plástico"}
+]
+```
+
+  - disco duro: píxel=(646.7, 308.1)  xyz=[-0.0556, -0.0412, 0.455]  rango=0.4602 m
+  - caja de plástico: píxel=(620.8, 407.3)  xyz=[-0.0586, -0.0229, 0.443]  rango=0.4475 m
+  - caja de plástico: píxel=(1627.3, 491.5)  xyz=[0.1182, -0.0086, 0.454]  rango=0.4692 m
+[INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_cajas_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:01:33]    [INFO] Respuesta en 3.225 s:
+[14:01:33]    - disco duro: píxel=(646.7, 308.1)  xyz=[-0.0556, -0.0412, 0.455]  rango=0.4602 m
+[14:01:33]    - caja de plástico: píxel=(620.8, 407.3)  xyz=[-0.0586, -0.0229, 0.443]  rango=0.4475 m
+[14:01:33]    - caja de plástico: píxel=(1627.3, 491.5)  xyz=[0.1182, -0.0086, 0.454]  rango=0.4692 m
+[14:01:33]    [INFO] Distancia 3D 'disco duro' <-> 'caja de plástico': 0.022 m
+[14:01:33] FASE 7 · Exp. 3 — distancia 3D con y sin registro (misma respuesta)
+[14:01:33]  dist1 rep 1
+$ consultar --escena dist1 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.924 s:
+```json
+[
+  {"point": [95, 308], "label": "la tapa del termo"},
+  {"point": [355, 805], "label": "la tapa de la caja"}
+]
+```
+
+  - la tapa del termo: píxel=(591.1, 102.5)  xyz=[-0.0769, -0.0912, 0.534]  rango=0.5472 m
+  - la tapa de la caja: píxel=(1544.8, 383.0)  xyz=[0.1045, -0.0281, 0.458]  rango=0.4706 m
+[INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.207 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist1_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:01:47]    [INFO] Respuesta en 3.924 s:
+[14:01:47]    - la tapa del termo: píxel=(591.1, 102.5)  xyz=[-0.0769, -0.0912, 0.534]  rango=0.5472 m
+[14:01:47]    - la tapa de la caja: píxel=(1544.8, 383.0)  xyz=[0.1045, -0.0281, 0.458]  rango=0.4706 m
+[14:01:47]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.207 m
+$ consultar --escena dist1 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [   {"point": [95, 308], "label": "la tapa del termo"},   {"point": [355, 805], "label": "la tapa de la caja"} ] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [   {"point": [95, 308], "label": "la tapa del termo"},   {"point": [355, 805], "label": "la tapa de la caja"} ] ```
+
+  - la tapa del termo: píxel=(591.1, 102.5)  xyz=[-0.0785, -0.0931, 0.545]  rango=0.5584 m
+  - la tapa de la caja: píxel=(1544.8, 383.0)  xyz=[0.1189, -0.0319, 0.521]  rango=0.5353 m
+[INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.208 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist1_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:01:48]    [INFO] Respuesta en 0.0 s:
+[14:01:48]    - la tapa del termo: píxel=(591.1, 102.5)  xyz=[-0.0785, -0.0931, 0.545]  rango=0.5584 m
+[14:01:48]    - la tapa de la caja: píxel=(1544.8, 383.0)  xyz=[0.1189, -0.0319, 0.521]  rango=0.5353 m
+[14:01:48]    [INFO] Distancia 3D 'la tapa del termo' <-> 'la tapa de la caja': 0.208 m
+[14:01:48]  dist1 rep 2
+$ consultar --escena dist1 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 4.0 s:
+```json
+[
+  {"point": [90, 298], "label": "tapa del termo"},
+  {"point": [350, 804], "label": "tapa de la caja"}
+]
+```
+
+  - tapa del termo: píxel=(571.9, 97.1)  xyz=[-0.081, -0.0925, 0.535]  rango=0.5489 m
+  - tapa de la caja: píxel=(1542.9, 377.6)  xyz=[0.1042, -0.029, 0.458]  rango=0.4706 m
+[INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.210 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist1_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:00]    [INFO] Respuesta en 4.0 s:
+[14:02:00]    - tapa del termo: píxel=(571.9, 97.1)  xyz=[-0.081, -0.0925, 0.535]  rango=0.5489 m
+[14:02:00]    - tapa de la caja: píxel=(1542.9, 377.6)  xyz=[0.1042, -0.029, 0.458]  rango=0.4706 m
+[14:02:00]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.210 m
+$ consultar --escena dist1 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [   {"point": [90, 298], "label": "tapa del termo"},   {"point": [350, 804], "label": "tapa de la caja"} ] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [   {"point": [90, 298], "label": "tapa del termo"},   {"point": [350, 804], "label": "tapa de la caja"} ] ```
+
+  - tapa del termo: píxel=(571.9, 97.1)  xyz=[-0.0826, -0.0942, 0.545]  rango=0.5592 m
+  - tapa de la caja: píxel=(1542.9, 377.6)  xyz=[0.1187, -0.0331, 0.522]  rango=0.5364 m
+[INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.212 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist1_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:01]    [INFO] Respuesta en 0.0 s:
+[14:02:01]    - tapa del termo: píxel=(571.9, 97.1)  xyz=[-0.0826, -0.0942, 0.545]  rango=0.5592 m
+[14:02:01]    - tapa de la caja: píxel=(1542.9, 377.6)  xyz=[0.1187, -0.0331, 0.522]  rango=0.5364 m
+[14:02:01]    [INFO] Distancia 3D 'tapa del termo' <-> 'tapa de la caja': 0.212 m
+[14:02:01]  dist2 rep 1
+$ consultar --escena dist2 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.993 s:
+```json
+[]
+```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist2_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:13]    [INFO] Respuesta en 3.993 s:
+$ consultar --escena dist2 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [] ```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist2_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:14]    [INFO] Respuesta en 0.0 s:
+[14:02:14]  dist2 rep 2
+$ consultar --escena dist2 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 4.191 s:
+```json
+[
+  {"point": [311, 785], "label": "tapa de la caja"},
+  {"point": [20, 50], "label": "tapa del termo"}
+]
+```
+
+  - tapa de la caja: píxel=(1506.4, 335.6)  xyz=[0.0981, -0.0367, 0.46]  rango=0.4718 m
+  - tapa del termo: píxel=(96.0, 21.6)  xyz=[-0.1811, -0.1087, 0.537]  rango=0.577 m
+[INFO] Distancia 3D 'tapa de la caja' <-> 'tapa del termo': 0.298 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist2_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:26]    [INFO] Respuesta en 4.191 s:
+[14:02:26]    - tapa de la caja: píxel=(1506.4, 335.6)  xyz=[0.0981, -0.0367, 0.46]  rango=0.4718 m
+[14:02:26]    - tapa del termo: píxel=(96.0, 21.6)  xyz=[-0.1811, -0.1087, 0.537]  rango=0.577 m
+[14:02:26]    [INFO] Distancia 3D 'tapa de la caja' <-> 'tapa del termo': 0.298 m
+$ consultar --escena dist2 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [   {"point": [311, 785], "label": "tapa de la caja"},   {"point": [20, 50], "label": "tapa del termo"} ] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [   {"point": [311, 785], "label": "tapa de la caja"},   {"point": [20, 50], "label": "tapa del termo"} ] ```
+
+  - tapa de la caja: píxel=(1506.4, 335.6)  xyz=[0.0979, -0.0366, 0.459]  rango=0.4707 m
+  - tapa del termo: píxel=(96.0, 21.6)  xyz=None  rango=None m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist2_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:27]    [INFO] Respuesta en 0.0 s:
+[14:02:27]    - tapa de la caja: píxel=(1506.4, 335.6)  xyz=[0.0979, -0.0366, 0.459]  rango=0.4707 m
+[14:02:27]    - tapa del termo: píxel=(96.0, 21.6)  xyz=None  rango=None m
+[14:02:27]  dist3 rep 1
+$ consultar --escena dist3 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 5.134 s:
+```json
+[]
+```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist3_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:40]    [INFO] Respuesta en 5.134 s:
+$ consultar --escena dist3 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [] ```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist3_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:41]    [INFO] Respuesta en 0.0 s:
+[14:02:41]  dist3 rep 2
+$ consultar --escena dist3 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.486 s:
+```json
+[]
+```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist3_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:52]    [INFO] Respuesta en 3.486 s:
+$ consultar --escena dist3 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [] ```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist3_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:02:52]    [INFO] Respuesta en 0.0 s:
+[14:02:52]  dist4 rep 1
+$ consultar --escena dist4 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 4.65 s:
+```json
+[]
+```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist4_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:03:06]    [INFO] Respuesta en 4.65 s:
+$ consultar --escena dist4 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [] ```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist4_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:03:07]    [INFO] Respuesta en 0.0 s:
+[14:03:07]  dist4 rep 2
+$ consultar --escena dist4 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.819 s:
+```json
+[]
+```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist4_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:03:18]    [INFO] Respuesta en 3.819 s:
+$ consultar --escena dist4 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [] ```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist4_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:03:19]    [INFO] Respuesta en 0.0 s:
+[14:03:19]  dist5 rep 1
+$ consultar --escena dist5 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 7.853 s:
+```json
+[]
+```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist5_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:03:35]    [INFO] Respuesta en 7.853 s:
+$ consultar --escena dist5 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [] ```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist5_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:03:36]    [INFO] Respuesta en 0.0 s:
+[14:03:36]  dist5 rep 2
+$ consultar --escena dist5 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.602 s:
+```json
+[]
+```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist5_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:03:43]    [INFO] Respuesta en 2.602 s:
+$ consultar --escena dist5 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y el centro de la tapa de la caja --sin-registro --respuesta ```json [] ```
+[INFO] Prompt:
+Señala el centro de la tapa del termo y el centro de la tapa de la caja en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+```json [] ```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist5_puntos_sinreg_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:03:43]    [INFO] Respuesta en 0.0 s:
+[14:03:43]  altura del termo
+$ consultar --escena dist1 --tarea puntos --grupo G04 --objeto el centro de la tapa del termo y la mesa justo al lado del termo
+[INFO] Prompt:
+Señala el centro de la tapa del termo y la mesa justo al lado del termo en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.239 s:
+```json
+[
+  {"point": [90, 295], "label": "tapa del termo"},
+  {"point": [245, 410], "label": "mesa justo al lado del termo"}
+]
+```
+
+  - tapa del termo: píxel=(566.1, 97.1)  xyz=[-0.0822, -0.0925, 0.535]  rango=0.5491 m
+  - mesa justo al lado del termo: píxel=(786.8, 264.4)  xyz=[-0.0358, -0.0569, 0.529]  rango=0.5333 m
+[INFO] Distancia 3D 'tapa del termo' <-> 'mesa justo al lado del termo': 0.059 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/dist1_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:03:57]    [INFO] Respuesta en 3.239 s:
+[14:03:57]    - tapa del termo: píxel=(566.1, 97.1)  xyz=[-0.0822, -0.0925, 0.535]  rango=0.5491 m
+[14:03:57]    - mesa justo al lado del termo: píxel=(786.8, 264.4)  xyz=[-0.0358, -0.0569, 0.529]  rango=0.5333 m
+[14:03:57]    [INFO] Distancia 3D 'tapa del termo' <-> 'mesa justo al lado del termo': 0.059 m
+[14:03:57] FASE 8 · Exp. 4 — thinking low/high intercalado, 5 repeticiones, semantica2p
+[14:03:57]  rep 1 · low
+$ consultar --escena semantica2p --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 5.626 s:
+```json
+[
+  {"point": [520, 840], "label": "celular al lado de las llaves"}
+]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:04:12]    [INFO] Respuesta en 5.626 s:
+[14:04:12]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:04:12]  rep 1 · high
+$ consultar --escena semantica2p --tarea propio --thinking high --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.11 s:
+```json
+[{"point": [520, 840], "label": "celular al lado de las llaves"}]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:04:22]    [INFO] Respuesta en 3.11 s:
+[14:04:22]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:04:22]  rep 2 · low
+$ consultar --escena semantica2p --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.716 s:
+```json
+[
+  {"point": [520, 840], "label": "celular al lado de las llaves"}
+]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:04:35]    [INFO] Respuesta en 2.716 s:
+[14:04:35]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:04:35]  rep 2 · high
+$ consultar --escena semantica2p --tarea propio --thinking high --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.469 s:
+```json
+[{"point": [522, 840], "label": "celular al lado de las llaves"}]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 563.2)  xyz=[0.13, 0.0046, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:04:49]    [INFO] Respuesta en 3.469 s:
+[14:04:49]    - celular al lado de las llaves: píxel=(1612.0, 563.2)  xyz=[0.13, 0.0046, 0.511]  rango=0.5273 m
+[14:04:49]  rep 3 · low
+$ consultar --escena semantica2p --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+
+/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/google/genai/errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-robotics-er-2-preview\nPlease retry in 11h55m0.598344737s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-robotics-er-2-preview', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42900s'}]}}
+
+[14:04:59]    🔑 cuota diaria agotada; se pasa a la clave 3 de 4
+$ consultar --escena semantica2p --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.84 s:
+```json
+[{"point": [520, 840], "label": "celular al lado de las llaves"}]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:05:14]    [INFO] Respuesta en 2.84 s:
+[14:05:14]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:05:14]  rep 3 · high
+$ consultar --escena semantica2p --tarea propio --thinking high --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.882 s:
+```json
+[{"point": [520, 840], "label": "celular al lado de las llaves"}]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:05:28]    [INFO] Respuesta en 3.882 s:
+[14:05:28]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:05:28]  rep 4 · low
+$ consultar --escena semantica2p --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.364 s:
+```json
+[
+  {"point": [520, 840], "label": "celular al lado de las llaves"}
+]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:05:40]    [INFO] Respuesta en 2.364 s:
+[14:05:40]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:05:40]  rep 4 · high
+$ consultar --escena semantica2p --tarea propio --thinking high --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.724 s:
+```json
+[{"point": [520, 840], "label": "celular al lado de las llaves"}]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:05:54]    [INFO] Respuesta en 3.724 s:
+[14:05:54]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:05:54]  rep 5 · low
+$ consultar --escena semantica2p --tarea propio --thinking low --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 2.789 s:
+```json
+[{"point": [520, 840], "label": "celular al lado de las llaves"}]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:06:06]    [INFO] Respuesta en 2.789 s:
+[14:06:06]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:06:06]  rep 5 · high
+$ consultar --escena semantica2p --tarea propio --thinking high --grupo G04 --objeto el celular que pertenece a la persona que dejó sus llaves al lado
+[INFO] Prompt:
+Eres el sistema de percepción de un brazo Kinova Gen3 que mira una mesa desde arriba. Instrucción: identifica el celular que pertenece a la persona que dejó sus llaves al lado. Antes de responder razona en silencio: (1) enumera los objetos candidatos de la categoría pedida; (2) para cada uno verifica, solo con lo que se ve, la relación que exige la instrucción: qué tiene encima o debajo, qué está a su lado, qué contiene o dentro de qué está, si está abierto, cerrado o volcado; (3) elige el ÚNICO candidato que la cumple. Si ninguno la cumple devuelve []. Señala el centro visible de la cara superior del objeto elegido, no su borde ni su sombra. Devuelve exactamente un elemento y en "label" escribe el objeto y la relación verificada. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.447 s:
+```json
+[{"point": [520, 840], "label": "celular al lado de las llaves"}]
+```
+
+  - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/semantica2p_propio_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:06:20]    [INFO] Respuesta en 3.447 s:
+[14:06:20]    - celular al lado de las llaves: píxel=(1612.0, 561.1)  xyz=[0.13, 0.0042, 0.511]  rango=0.5273 m
+[14:06:20] FASE 9 · Exp. 5 — volumen, agarre, plan y éxito
+$ consultar --escena regla --tarea puntos --grupo G04 --objeto esquinas de la zona útil de la mesa (definidas por el equipo) --respuesta [{"point": [120, 150], "label": "mesa_sup_izq"}, {"point": [120, 880], "label": "mesa_sup_der"}, {"point": [850, 150], "label": "mesa_inf_izq"}, {"point": [850, 880], "label": "mesa_inf_der"}]
+[INFO] Prompt:
+Señala esquinas de la zona útil de la mesa (definidas por el equipo) en la imagen. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 0.0 s:
+[{"point": [120, 150], "label": "mesa_sup_izq"}, {"point": [120, 880], "label": "mesa_sup_der"}, {"point": [850, 150], "label": "mesa_inf_izq"}, {"point": [850, 880], "label": "mesa_inf_der"}]
+
+  - mesa_sup_izq: píxel=(287.8, 129.5)  xyz=[-0.1384, -0.0845, 0.5275]  rango=0.5519 m
+  - mesa_sup_der: píxel=(1688.7, 129.5)  xyz=[0.1476, -0.0832, 0.519]  rango=0.546 m
+  - mesa_inf_izq: píxel=(287.8, 917.1)  xyz=[-0.1351, 0.0758, 0.515]  rango=0.5378 m
+  - mesa_inf_der: píxel=(1688.7, 917.1)  xyz=[0.1431, 0.074, 0.503]  rango=0.5282 m
+[INFO] Distancia 3D 'mesa_sup_izq' <-> 'mesa_sup_der': 0.286 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/regla_puntos_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:06:21]    [INFO] Respuesta en 0.0 s:
+[14:06:21]    - mesa_sup_izq: píxel=(287.8, 129.5)  xyz=[-0.1384, -0.0845, 0.5275]  rango=0.5519 m
+[14:06:21]    - mesa_sup_der: píxel=(1688.7, 129.5)  xyz=[0.1476, -0.0832, 0.519]  rango=0.546 m
+[14:06:21]    - mesa_inf_izq: píxel=(287.8, 917.1)  xyz=[-0.1351, 0.0758, 0.515]  rango=0.5378 m
+[14:06:21]    - mesa_inf_der: píxel=(1688.7, 917.1)  xyz=[0.1431, 0.074, 0.503]  rango=0.5282 m
+[14:06:21]    [INFO] Distancia 3D 'mesa_sup_izq' <-> 'mesa_sup_der': 0.286 m
+$ volumen --escena regla --h-max 0.305 --d-a 0.10
+{
+  "x_min": -0.1384,
+  "x_max": 0.1476,
+  "y_min": -0.0845,
+  "y_max": 0.0758,
+  "z_mesa": 0.517,
+  "h_max": 0.305,
+  "d_a": 0.1,
+  "normal": [
+    -0.0293,
+    -0.0771,
+    -0.9966
+  ],
+  "puntos_mesa_m": [
+    [
+      -0.1384,
+      -0.0845,
+      0.5275
+    ],
+    [
+      0.1476,
+      -0.0832,
+      0.519
+    ],
+    [
+      -0.1351,
+      0.0758,
+      0.515
+    ],
+    [
+      0.1431,
+      0.074,
+      0.503
+    ]
+  ],
+  "consulta": "2026-10-20T14:06:21"
+}
+
+[14:06:21]  agarre_s1
+$ consultar --escena agarre_s1 --tarea agarre --grupo G04 --objeto la caja de hamburguesa
+[INFO] Prompt:
+Un brazo robótico con pinza paralela debe tomar la caja de hamburguesa desde arriba. Señala el mejor punto de agarre sobre el objeto y, si el agarre NO es seguro (algo encima, objeto inestable, mano humana cerca), devuelve una lista vacía. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.186 s:
+```json
+[
+  {"point": [350, 560], "label": "caja de hamburguesa"}
+]
+```
+
+  - caja de hamburguesa: píxel=(1074.6, 377.6)  xyz=[0.0207, -0.0293, 0.463]  rango=0.4644 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/agarre_s1_agarre_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:06:33]    [INFO] Respuesta en 3.186 s:
+[14:06:33]    - caja de hamburguesa: píxel=(1074.6, 377.6)  xyz=[0.0207, -0.0293, 0.463]  rango=0.4644 m
+[14:06:33]  agarre_s2
+$ consultar --escena agarre_s2 --tarea agarre --grupo G04 --objeto la caja de hamburguesa
+[INFO] Prompt:
+Un brazo robótico con pinza paralela debe tomar la caja de hamburguesa desde arriba. Señala el mejor punto de agarre sobre el objeto y, si el agarre NO es seguro (algo encima, objeto inestable, mano humana cerca), devuelve una lista vacía. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 19.228 s:
+```json
+[
+  {"point": [254, 598], "label": "caja de hamburguesa"}
+]
+```
+
+  - caja de hamburguesa: píxel=(1147.6, 274.1)  xyz=[0.0339, -0.0481, 0.463]  rango=0.4667 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/agarre_s2_agarre_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:07:02]    [INFO] Respuesta en 19.228 s:
+[14:07:02]    - caja de hamburguesa: píxel=(1147.6, 274.1)  xyz=[0.0339, -0.0481, 0.463]  rango=0.4667 m
+[14:07:02]  agarre_s3
+$ consultar --escena agarre_s3 --tarea agarre --grupo G04 --objeto la caja de hamburguesa
+[INFO] Prompt:
+Un brazo robótico con pinza paralela debe tomar la caja de hamburguesa desde arriba. Señala el mejor punto de agarre sobre el objeto y, si el agarre NO es seguro (algo encima, objeto inestable, mano humana cerca), devuelve una lista vacía. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 3.928 s:
+```json
+[
+  {"point": [140, 555], "label": "caja de hamburguesa"}
+]
+```
+
+  - caja de hamburguesa: píxel=(1065.0, 151.1)  xyz=[0.0217, -0.0803, 0.529]  rango=0.5355 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/agarre_s3_agarre_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:07:07]    [INFO] Respuesta en 3.928 s:
+[14:07:07]    - caja de hamburguesa: píxel=(1065.0, 151.1)  xyz=[0.0217, -0.0803, 0.529]  rango=0.5355 m
+[14:07:07]  agarre_i1
+$ consultar --escena agarre_i1 --tarea agarre --grupo G04 --objeto la caja de hamburguesa
+[INFO] Prompt:
+Un brazo robótico con pinza paralela debe tomar la caja de hamburguesa desde arriba. Señala el mejor punto de agarre sobre el objeto y, si el agarre NO es seguro (algo encima, objeto inestable, mano humana cerca), devuelve una lista vacía. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 5.362 s:
+```json
+[
+  {"point": [110, 550], "label": "caja de hamburguesa"}
+]
+```
+
+  - caja de hamburguesa: píxel=(1055.5, 118.7)  xyz=[0.0197, -0.087, 0.529]  rango=0.5365 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/agarre_i1_agarre_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:07:21]    [INFO] Respuesta en 5.362 s:
+[14:07:21]    - caja de hamburguesa: píxel=(1055.5, 118.7)  xyz=[0.0197, -0.087, 0.529]  rango=0.5365 m
+[14:07:21]  agarre_i2
+$ consultar --escena agarre_i2 --tarea agarre --grupo G04 --objeto la caja de hamburguesa
+[INFO] Prompt:
+Un brazo robótico con pinza paralela debe tomar la caja de hamburguesa desde arriba. Señala el mejor punto de agarre sobre el objeto y, si el agarre NO es seguro (algo encima, objeto inestable, mano humana cerca), devuelve una lista vacía. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 4.416 s:
+```json
+[]
+```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/agarre_i2_agarre_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:07:33]    [INFO] Respuesta en 4.416 s:
+[14:07:33]  agarre_i3
+$ consultar --escena agarre_i3 --tarea agarre --grupo G04 --objeto la caja de hamburguesa
+[INFO] Prompt:
+Un brazo robótico con pinza paralela debe tomar la caja de hamburguesa desde arriba. Señala el mejor punto de agarre sobre el objeto y, si el agarre NO es seguro (algo encima, objeto inestable, mano humana cerca), devuelve una lista vacía. Responde SOLO con una lista JSON con el formato [{"point": [y, x], "label": "<nombre>"}]. Los puntos van en formato [y, x] normalizado a 0-1000.
+
+[INFO] Respuesta en 19.106 s:
+```json
+[]
+```
+
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/agarre_i3_agarre_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:08:01]    [INFO] Respuesta en 19.106 s:
+[14:08:01]  plan
+$ consultar --escena burger --tarea plan --grupo G04 --objeto llevar la caja libre a la bandeja
+[INFO] Prompt:
+Eres el planificador de un brazo Kinova Gen3 con pinza. Objetivo: llevar la caja libre a la bandeja. Devuelve SOLO JSON con el formato {"objetos": [{"point": [y, x], "label": "<nombre>"}], "pasos": [{"accion": "mover_sobre|bajar|cerrar_pinza|subir|abrir_pinza", "objetivo": "<label o null>"}]}. Los puntos van en [y, x] normalizado a 0-1000. Usa solo esas acciones.
+
+[INFO] Respuesta en 4.658 s:
+```json
+{"objetos": [{"point": [435, 862], "label": "caja_libre"}, {"point": [310, 320], "label": "bandeja"}], "pasos": [{"accion": "mover_sobre", "objetivo": "caja_libre"}, {"accion": "bajar", "objetivo": "caja_libre"}, {"accion": "cerrar_pinza", "objetivo": null}, {"accion": "subir", "objetivo": null}, {"accion": "mover_sobre", "objetivo": "bandeja"}, {"accion": "bajar", "objetivo": "bandeja"}, {"accion": "abrir_pinza", "objetivo": null}, {"accion": "subir", "objetivo": null}]}
+```
+
+[INFO] Pasos propuestos (NO se ejecutan):
+   1. {'accion': 'mover_sobre', 'objetivo': 'caja_libre'}
+   2. {'accion': 'bajar', 'objetivo': 'caja_libre'}
+   3. {'accion': 'cerrar_pinza', 'objetivo': None}
+   4. {'accion': 'subir', 'objetivo': None}
+   5. {'accion': 'mover_sobre', 'objetivo': 'bandeja'}
+   6. {'accion': 'bajar', 'objetivo': 'bandeja'}
+   7. {'accion': 'abrir_pinza', 'objetivo': None}
+   8. {'accion': 'subir', 'objetivo': None}
+  - caja_libre: píxel=(1654.2, 469.4)  xyz=[0.1235, -0.0126, 0.456]  rango=0.4726 m
+  - bandeja: píxel=(614.1, 334.5)  xyz=[-0.061, -0.0363, 0.452]  rango=0.4575 m
+[INFO] Distancia 3D 'caja_libre' <-> 'bandeja': 0.186 m
+[OK] Imagen anotada: /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/capturas/burger_plan_resultado.png
+[OK] Fila(s) agregada(s) a /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/resultados.csv
+
+[14:08:07]    [INFO] Respuesta en 4.658 s:
+[14:08:07]    - caja_libre: píxel=(1654.2, 469.4)  xyz=[0.1235, -0.0126, 0.456]  rango=0.4726 m
+[14:08:07]    - bandeja: píxel=(614.1, 334.5)  xyz=[-0.061, -0.0363, 0.452]  rango=0.4575 m
+[14:08:07]    [INFO] Distancia 3D 'caja_libre' <-> 'bandeja': 0.186 m
+$ plan --escena burger
+  1. mover_sobre -> caja_libre
+  2. bajar -> caja_libre
+  3. cerrar_pinza -> None
+  4. subir -> None
+  5. mover_sobre -> bandeja
+  6. bajar -> bandeja
+  7. abrir_pinza -> None
+  8. subir -> None
+a) vocabulario permitido: OK 
+b) objetivos existentes: OK 
+c) puntos dentro del volumen: OK 
+d) secuencia coherente: OK 
+
+[14:08:07]  éxito exito_antes1 -> exito_bien1
+$ exito --antes exito_antes1 --despues exito_bien1 --grupo G04 --objeto la caja quedó dentro de la bandeja
+[INFO] Respuesta en 6.842 s:
+```json
+{"exito": true, "confianza": 0.9, "evidencia": "La caja transparente se encuentra colocada sobre la superficie negra en la segunda imagen."}
+```
+
+[14:08:22]    [INFO] Respuesta en 6.842 s:
+[14:08:22]  éxito exito_antes2 -> exito_mal1
+$ exito --antes exito_antes2 --despues exito_mal1 --grupo G04 --objeto la caja quedó dentro de la bandeja
+[INFO] Respuesta en 5.181 s:
+```json
+{"exito": true, "confianza": 0.9, "evidencia": "La caja de plástico transparente ha sido colocada de forma más centrada sobre la superficie blanca."}
+```
+
+[14:08:33]    [INFO] Respuesta en 5.181 s:
+[14:08:33]  éxito exito_antes3 -> exito_bien2
+$ exito --antes exito_antes3 --despues exito_bien2 --grupo G04 --objeto la caja quedó dentro de la bandeja
+
+e
+    response = self._httpx_client.send(httpx_request, stream=stream)  # type: ignore[union-attr, arg-type]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/saragarcia/venv_embodied/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+
+[14:09:42]    ⚠️ intento 1 falló (httpx.ReadTimeout: The read operation timed out); reintento en 20s
+$ exito --antes exito_antes3 --despues exito_bien2 --grupo G04 --objeto la caja quedó dentro de la bandeja
+[INFO] Respuesta en 31.679 s:
+```json
+{"exito": false, "confianza": 0.9, "evidencia": "La caja transparente fue retirada de la escena."}
+```
+
+[14:10:35]    [INFO] Respuesta en 31.679 s:
+[14:10:35]  éxito exito_antes4 -> exito_mal2
+$ exito --antes exito_antes4 --despues exito_mal2 --grupo G04 --objeto la caja quedó dentro de la bandeja
+[INFO] Respuesta en 3.232 s:
+```json
+{"exito": false, "confianza": 0.95, "evidencia": "La caja sigue en la misma posición fuera de la bandeja negra."}
+```
+
+[14:10:39]    [INFO] Respuesta en 3.232 s:
+[14:10:39] FASE 10 · análisis
+# Tablas LAB-IA-01B — generadas por analisis_lab_ia_01b.py
+
+Fuente: `resultados.csv` (90 consultas, 79 a la API real) y `verdad_terreno.csv`. Las consultas con modelo = manual (--respuesta) se excluyen de latencia y tokens.
+
+## Tabla 6 — Exp. 1: semántica con partición (thinking = low)
+
+| Relación | Aciertos D | Aciertos P | JSON inválidos | Latencia media ± σ (s) | Observación |
+|---|---|---|---|---|---|
+| Seguridad | 0 / 3 | 3 / 3 | 0 | 3.05 ± 1.18 |  |
+| Pertenencia | 3 / 3 | 3 / 3 | 0 | 3.01 ± 0.33 |  |
+| Estado | 3 / 3 | 3 / 3 | 0 | 2.65 ± 0.34 |  |
+| Contencion | 3 / 3 | 3 / 3 | 0 | 2.79 ± 0.40 |  |
+| Relacional (burger, prompt propio) | 2 / 3 | 3 / 3 | 0 | 2.99 ± 0.47 |  |
+| Relacional (burger, prompt ingenuo) | 0 / 3 | 3 / 3 | 0 | 2.51 ± 0.17 |  |
+| **Accuracy global (propio)** | D: 0.73 (N=15) | P: 1.00 (N=15) |  |  | Brecha D − P: -0.27 |
+
+## Tabla 7 — Exp. 2: cajas delimitadoras
+
+| Escena | Objeto | IoU medio ± σ con la verdad | σ coordenadas (px) | IoU medio entre repeticiones | N |
+|---|---|---|---|---|---|
+| burger | caja|recipiente|contenedor|box | 0.91 ± 0.00 | 1.2 | 0.99 | N=5 |
+| burger | disco|drive|cargador|bateria|dispositivo | 0.84 ± 0.01 | 2.1 | 0.98 | N=5 |
+| burger | caja|recipiente|contenedor|box | 0.59 ± 0.00 | 0.9 | 1.00 | N=5 |
+| semantica1 | caja|recipiente|contenedor|box | 0.91 ± 0.00 | 0.2 | 1.00 | N=5 |
+| semantica1 | caja|recipiente|contenedor|box | 0.68 ± 0.00 | 1.0 | 0.99 | N=5 |
+| semantica1 | termo|botella|bottle|coca | 0.95 ± 0.00 | 0.7 | 0.99 | N=5 |
+| semantica1 | hoja|papel|cuadricula|paper | 0.00 ± 0.00 | — | — | N=5 |
+| **Global** |  | mIoU: 0.82 |  |  | TP=20 FP=10 FN=15 · Precision 0.67 · Recall 0.57 |
+
+## Tabla 8 — Exp. 3: exactitud 3D y ablación del registro
+
+| Config. | Posición en la imagen | d_real (m) | d_est con registro (m) | e con registro (mm) | d_est sin registro (m) | e sin registro (mm) |
+|---|---|---|---|---|---|---|
+| dist1 | cinta: centro a centro (config 1) | 0.200 | 0.208 | 8.5 | 0.210 | 9.8 |
+| dist2 | cinta: centro a centro (config 2) | 0.300 | 0.298 | -1.6 | — | — |
+| dist3 | cinta: centro a centro (config 3) | 0.400 | — | — | — | — |
+| dist4 | cinta: centro a centro (borde) | 0.450 | — | — | — | — |
+| dist5 | cinta: centro a centro (borde) | 0.250 | — | — | — | — |
+| **MAE / RMSE** (N=3 / 2) |  |  |  | 6.2 / 7.1 |  | 9.8 / 10.0 |
+
+Altura de un objeto sobre la mesa (termo): real 0.215 m · estimada (Z_mesa − Z_objeto) 0.006 m · error -209.0 mm.
+
+## Tabla 9 — Exp. 4: costo del razonamiento (semantica2p)
+
+| thinking_level | Accuracy | Latencia media ± σ (s) | Decisiones/min | Tokens pensamiento | Tokens totales | ¿Aceptó el nivel? |
+|---|---|---|---|---|---|---|
+| low | 5 / 5 | 3.27 ± 1.33 | 18.4 | 203 | 1556 | sí |
+| high | 5 / 5 | 3.53 ± 0.30 | 17.0 | 438 | 1789 | sí |
+| minimal | — | — | — | — | — | no consultado |
+| medium | — | — | — | — | — | no consultado |
+
+## Tabla 10a — Matriz de confusión del agarre (positivo = insegura, el modelo se abstiene)
+
+|  | Modelo se abstiene (lista vacía) | Modelo devuelve punto |
+|---|---|---|
+| Escena insegura | TP = 2 | FN = 1 |
+| Escena segura | FP = 0 | TN = 3 |
+| Precision / Recall / F1 | 1.00 / 0.67 / 0.80 |  |
+
+## Tabla 10b — Espacio de trabajo y pre-agarre
+
+| Escena | Punto de agarre (X, Y, Z) m | ¿Dentro del volumen? | ¿Sobre el objeto correcto? | p_pre (m) | Observación |
+|---|---|---|---|---|---|
+| agarre_s1 | (0.021, -0.029, 0.463) | True | True | (0.018, -0.037, 0.363) |  |
+| agarre_s2 | (0.034, -0.048, 0.463) | True | True | (0.031, -0.056, 0.363) |  |
+| agarre_s3 | (0.022, -0.080, 0.529) | False | True | (0.019, -0.088, 0.429) |  |
+
+Volumen de trabajo: X [-0.138, 0.148] m · Y [-0.085, 0.076] m · Z_mesa = 0.517 m · h_max = 0.305 m · n = (-0.0293, -0.0771, -0.9966) · d_a = 0.1 m
+
+## Tabla 10c — Plan y detección de éxito
+
+| Prueba | Resultado del modelo | Resultado esperado | ¿Correcto? | Comentario |
+|---|---|---|---|---|
+| Plan: a) vocabulario permitido | OK |  | True |  |
+| Plan: b) objetivos existentes | OK |  | True |  |
+| Plan: c) puntos dentro del volumen | OK |  | True |  |
+| Plan: d) secuencia coherente | OK |  | True |  |
+| Éxito: exito_antes1->exito_bien1 | exito: True | exito: true | True | La caja transparente se encuentra colocada sobre la superficie negra en la segunda imagen. |
+| Éxito: exito_antes3->exito_bien2 | exito: False | exito: true | False | La caja transparente fue retirada de la escena. |
+| Éxito: exito_antes2->exito_mal1 | exito: True | exito: false | False | La caja de plástico transparente ha sido colocada de forma más centrada sobre la superficie blanca. |
+| Éxito: exito_antes4->exito_mal2 | exito: False | exito: false | True | La caja sigue en la misma posición fuera de la bandeja negra. |
+| **Accuracy de detección de éxito** | 0.50 | N=4 |  |  |
+
+## Tabla 11 — Resumen de métricas
+
+| Métrica | Valor ± dispersión | N | Exp. | ¿Confirma la hipótesis de la Fase 1? |
+|---|---|---|---|---|
+| Accuracy semántica D / P | 0.73 / 1.00 | 15 / 15 | 1 |  |
+| mIoU · Precision / Recall de detección | 0.82 · 0.67 / 0.57 | 35 | 2 |  |
+| RMSE 3D con / sin registro (mm) | 7.1 / 10.0 | 3 / 2 | 3 |  |
+| Latencia low / high (s) | 3.27 ± 1.33 / 3.53 ± 0.30 | 5 / 5 | 4 |  |
+| P / R / F1 del rechazo de agarres inseguros | 1.00 / 0.67 / 0.80 | 6 | 5 |  |
+| Accuracy de detección de éxito | 0.50 | 4 | 5 |  |
+
+[OK] Escrito en /mnt/d/ULTIMITO SEMESTRE/IA/labx/plantilla_lab_ia_embodied/resultados/tablas.md
+[14:10:40]    resultados/tablas.md escrito
+[14:10:40] ✅ TERMINADO en 16.5 min
